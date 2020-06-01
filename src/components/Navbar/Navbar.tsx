@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { Button, Container, Nav, Navbar, NavbarProps } from "react-bootstrap";
-import { ReactComponent as Logo } from "../../logo.svg";
+import { Container, Nav, Navbar, NavbarProps } from "react-bootstrap";
 import { ReactComponent as GitIcon } from "../../graphics/github-original.svg";
 import { ReactComponent as LinkedinIcon } from "../../graphics/linkedin.svg";
 import { DarkModeContext } from "../../utilites/ThemeProvider";
+import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 
 import localStyles from "./Navbar.module.scss";
 
@@ -39,14 +39,10 @@ const NavbarExtended: React.FC<Props> = ({
     >
       <Container>
         <Navbar.Brand href="#home" className="d-flex align-items-center">
-          <Logo className={localStyles.logo} />
           Jonathan Bridges
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Button onClick={() => setTheme(theme)} variant={`outline-primary`}>
-            Toggle theme
-          </Button>
           <Nav className="mr-auto">
             <Nav.Link href="https://github.com/jonathanbridges" target="_blank">
               <GitIcon
@@ -61,6 +57,10 @@ const NavbarExtended: React.FC<Props> = ({
                 className={isDark ? localStyles.icon : localStyles.iconinverted}
               />
             </Nav.Link>
+            <Navbar.Text className="d-inline-flex nav-link">
+              Dark Mode
+              <DarkModeToggle onClick={() => setTheme(theme)} isDark={isDark} />
+            </Navbar.Text>
           </Nav>
           <Nav>
             {navLinks.map((text) => (

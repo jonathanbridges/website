@@ -7,7 +7,7 @@ const App: React.FC = () => {
   return (
     <DarkModeProvider>
       <NavbarExtended
-        expand="md"
+        expand="lg"
         sticky="top"
         navLinks={["About", "Skills", "Projects", "Experience", "Contact"]}
       />

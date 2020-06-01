@@ -1,0 +1,15 @@
+.moon {
+  height: 1.5rem;
+  width: 1.5rem;
+  transition: all 0.3s linear;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+.sun {
+  height: 1.5rem;
+  width: 1.5rem;
+  transform: rotate(45deg);
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
