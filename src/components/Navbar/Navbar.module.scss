@@ -10,3 +10,15 @@
     fill: white;
   }
 }
+
+.iconinverted {
+  width: 1.5rem;
+  height: 1.5rem;
+  path {
+    fill: black;
+  }
+}
+
+.transition {
+  transition: all 250ms ease-in-out;
+}
