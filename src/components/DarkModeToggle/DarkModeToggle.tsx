@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge, Button, ButtonProps, Form, Navbar } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { ReactComponent as SunIcon } from "../../graphics/sun.svg";
 import { ReactComponent as MoonIcon } from "../../graphics/moon.svg";
 import localStyles from "./DarkModeToggle.module.scss";
@@ -9,6 +9,9 @@ interface Props {
    * Whether or not dark node is currently enabled.
    */
   isDark: boolean;
+  /*
+   * @callback function.
+   */
   onClick: () => void;
 }
 

@@ -4,7 +4,6 @@ import { ReactComponent as GitIcon } from "../../graphics/github-original.svg";
 import { ReactComponent as LinkedinIcon } from "../../graphics/linkedin.svg";
 import { DarkModeContext } from "../../utilites/ThemeProvider";
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
-
 import localStyles from "./Navbar.module.scss";
 
 interface Props extends NavbarProps {
@@ -14,13 +13,7 @@ interface Props extends NavbarProps {
   navLinks: string[];
 }
 
-const NavbarExtended: React.FC<Props> = ({
-  bg,
-  expand,
-  navLinks,
-  sticky,
-  variant,
-}) => {
+const NavbarExtended: React.FC<Props> = ({ expand, navLinks, sticky }) => {
   const theme = useContext(DarkModeContext);
   const { background, color, isDark } = theme.mode;
 
