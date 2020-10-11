@@ -3,6 +3,7 @@ import "./styles/App.scss";
 import NavbarExtended from "./components/Navbar/Navbar";
 import { DarkModeProvider } from "./utilites/ThemeProvider";
 import About from "./components/About/About";
+import Mondrian from "./components/Mondrian/Mondrian";
 
 const App: React.FC = () => {
   return (
@@ -14,7 +15,8 @@ const App: React.FC = () => {
       />
       <main>
         <About />
-      </main>
+        <Mondrian />
+      </main> 
     </DarkModeProvider>
   );
 };
