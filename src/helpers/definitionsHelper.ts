@@ -1,7 +1,13 @@
+/**
+ * allow Typescript indexing
+ */
 export interface Indexable {
   [key: string]: any;
 }
 
+/**
+ * color ranks for Mondrian
+ */
 export const ranks: Indexable = {
   red: 5,
   white: 4,
@@ -10,6 +16,9 @@ export const ranks: Indexable = {
   black: 1,
 };
 
+/**
+ * column colors for Mondrian
+ */
 export const colMap: Indexable = {
   2: "white",
   4: "blue",
@@ -23,6 +32,9 @@ export const colMap: Indexable = {
   20: "yellow",
 };
 
+/**
+ * row colors for Mondrian
+ */
 export const rowMap: Indexable = {
   2: "yellow",
   4: "blue",
@@ -33,6 +45,9 @@ export const rowMap: Indexable = {
   14: "black",
 };
 
+/**
+ * background colors for Mondrian
+ */
 export const colors: Indexable = {
   red: "rgb(236, 44, 40)",
   white: "rgb(228, 227, 225)",
