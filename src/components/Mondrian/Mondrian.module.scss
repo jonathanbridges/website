@@ -1,4 +1,36 @@
+.body {
+  height: 79vh;
+  display: grid;
+  background-color: rgb(208, 201, 186);
+  grid-template-columns: .5fr 1fr 1fr 1fr 2fr 1fr 10fr 1fr 2fr 1fr 5fr 1fr 5fr 1fr 5fr 1fr 1fr 1fr .5fr 1fr 1fr;
+  grid-template-rows: repeat(15, 1fr);
+}
+
 .black {
   display: grid;
+  min-height: 100%;
+  grid-template-columns: 32fr 2fr;
+  grid-template-rows: 28fr 1fr;
+  grid-column-gap: 0.6rem;
+  grid-row-gap: 0.5rem;
   background-color: black;
+  .item {
+    background-color: rgb(208, 201, 186);
+  }
 }
+
+.blue {
+  display: grid;
+  min-height: 100%;
+  grid-template-columns: 2fr .75fr 26fr 1.5fr;
+  grid-template-rows: 10fr .65rem 13fr 6fr 12fr;
+  .item {
+    background-color: rgb(1, 112, 183);
+    border-right: 2px solid red;
+  }
+  .weave {
+    background-color: black;
+  }
+}
+
+
