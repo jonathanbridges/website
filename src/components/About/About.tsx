@@ -1,17 +1,18 @@
-import React, { useContext } from "react";
-import Figure from "react-bootstrap/Figure";
-import { DarkModeContext } from "../../utilites/ThemeProvider";
+import React, { useContext } from 'react';
+import { DarkModeContext } from '../../utilites/ThemeProvider';
 
-const About: React.FC = () => {
-  const theme = useContext(DarkModeContext);
-  const { background, color, isDark } = theme.mode;
+interface Props {
+	sectionReference: React.RefObject<HTMLDivElement>;
+}
 
-  return (
-    <Figure className={isDark ? "bg-dark" : "bg-light"}>
-      <Figure.Image />
-      <Figure.Caption>Here's some filler text</Figure.Caption>
-    </Figure>
-  );
+const About: React.FC<Props> = ({ sectionReference }) => {
+	const theme = useContext(DarkModeContext);
+	const { background, color, isDark } = theme.mode;
+
+	return (
+		<section ref={sectionReference} className={isDark ? 'bg-dark' : 'bg-light'}>
+			<h1>Here's some filler text</h1>
+		</section>
+	);
 };
-
 export default About;

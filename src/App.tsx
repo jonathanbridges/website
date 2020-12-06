@@ -1,24 +1,95 @@
-import React from "react";
-import "./styles/App.scss";
-import NavbarExtended from "./components/Navbar/Navbar";
-import { DarkModeProvider } from "./utilites/ThemeProvider";
-import About from "./components/About/About";
-import Mondrian from "./components/Mondrian/Mondrian";
+import React, { createRef } from 'react';
+import './styles/App.scss';
+import NavbarExtended from './components/Navbar/Navbar';
+import { DarkModeProvider } from './utilites/ThemeProvider';
+import About from './components/About/About';
+import Mondrian from './components/Mondrian/Mondrian';
 
 const App: React.FC = () => {
-  return (
-    <DarkModeProvider>
-      <NavbarExtended
-        expand="lg"
-        sticky="top"
-        navLinks={["About", "Skills", "Projects", "Experience", "Contact"]}
-      />
-      <main>
-        <About />
-        <Mondrian />
-      </main> 
-    </DarkModeProvider>
-  );
+	/**
+	 * Section titles and refs used to render links and scroll to sections in the navbar.
+	 */
+	const sections: Record<string, React.RefObject<HTMLDivElement>> = {
+		Home: createRef<HTMLDivElement>(),
+		About: createRef<HTMLDivElement>(),
+		Skills: createRef<HTMLDivElement>(),
+		Projects: createRef<HTMLDivElement>(),
+		Experience: createRef<HTMLDivElement>(),
+		Contact: createRef<HTMLDivElement>()
+	};
+
+	/**
+	 * Event handler for scrolling to sections
+	 */
+	const handleScroll = (sectionReference: React.RefObject<HTMLDivElement>) => {
+		if (sectionReference && sectionReference.current) {
+			sectionReference.current.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			});
+		}
+	};
+
+	return (
+		<DarkModeProvider>
+			<div ref={sections['Home']}>
+				<NavbarExtended
+					expand='lg'
+					sticky='top'
+					sections={sections}
+					handleScroll={handleScroll}
+				/>
+			</div>
+			<main>
+				<Mondrian />
+				<section>
+					<h2>
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+						aliquip ex ea commodo consequat. Duis aute irure dolor in
+						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+						culpa qui officia deserunt mollit anim id est laborum."
+					</h2>
+				</section>
+				<section>
+					<h2>
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+						aliquip ex ea commodo consequat. Duis aute irure dolor in
+						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+						culpa qui officia deserunt mollit anim id est laborum."
+					</h2>
+				</section>
+				<section>
+					<h2>
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+						aliquip ex ea commodo consequat. Duis aute irure dolor in
+						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+						culpa qui officia deserunt mollit anim id est laborum."
+					</h2>
+				</section>
+				<section>
+					<h2>
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+						aliquip ex ea commodo consequat. Duis aute irure dolor in
+						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+						culpa qui officia deserunt mollit anim id est laborum."
+					</h2>
+				</section>
+				<About sectionReference={sections['About']} />
+			</main>
+		</DarkModeProvider>
+	);
 };
 
 export default App;

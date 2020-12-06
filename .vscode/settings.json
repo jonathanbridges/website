@@ -1,3 +1,7 @@
 {
-  "editor.autoClosingBrackets": "always"
+  "editor.autoClosingBrackets": "always",
+  "editor.formatOnSave": true,
+  "prettier.useTabs": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "none"
 }
