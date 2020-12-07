@@ -8,7 +8,7 @@ import localStyles from './Navbar.module.scss';
 
 interface Props extends NavbarProps {
 	/**
-	 * Section titles and references 
+	 * Section titles and references
 	 */
 	sections: Record<string, RefObject<HTMLDivElement>>;
 	/**
@@ -17,12 +17,7 @@ interface Props extends NavbarProps {
 	handleScroll: (sectionReference: React.RefObject<HTMLDivElement>) => void;
 }
 
-const NavbarExtended: React.FC<Props> = ({
-	expand,
-	sticky,
-	sections,
-	handleScroll
-}) => {
+const NavbarExtended: React.FC<Props> = ({ sections, handleScroll }) => {
 	const theme = useContext(DarkModeContext);
 	const { background, color, isDark } = theme.mode;
 
@@ -40,22 +35,22 @@ const NavbarExtended: React.FC<Props> = ({
 	return (
 		<Navbar
 			bg={isDark ? 'dark' : 'light'}
-			variant={isDark ? 'dark' : 'light'}
-			expand={expand}
-			sticky={sticky}
 			className={localStyles.transition}
+			expand={'lg'}
+			collapseOnSelect
+			variant={isDark ? 'dark' : 'light'}
 		>
 			<Container>
-				<Navbar.Brand href='#home' className='d-flex align-items-center'>
+				<Navbar.Brand href='#home' className={localStyles.brand}>
 					Jonathan Bridges
 				</Navbar.Brand>
-				<Navbar.Toggle aria-controls='responsive-navbar-nav' />
+				<Navbar.Toggle
+					aria-controls='responsive-navbar-nav'
+					className={localStyles.toggle}
+				/>
 				<Navbar.Collapse id='responsive-navbar-nav'>
 					<Nav className='mr-auto'>
-						<Nav.Link
-							href='https://github.com/jonathanbridges'
-							target='_blank'
-						>
+						<Nav.Link href='https://github.com/jonathanbridges' target='_blank'>
 							<GitIcon
 								className={isDark ? localStyles.icon : localStyles.iconinverted}
 							/>
@@ -68,7 +63,7 @@ const NavbarExtended: React.FC<Props> = ({
 								className={isDark ? localStyles.icon : localStyles.iconinverted}
 							/>
 						</Nav.Link>
-						<Navbar.Text className='d-inline-flex nav-link'>
+						<Navbar.Text className={`${localStyles['darktoggle']} nav-link`}>
 							Dark Mode
 							<DarkModeToggle onClick={() => setTheme(theme)} isDark={isDark} />
 						</Navbar.Text>

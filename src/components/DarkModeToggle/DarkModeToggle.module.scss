@@ -1,15 +1,23 @@
+.form {
+  label {
+    display: inline;
+  }
+}
+
 .moon {
   height: 1.5rem;
   width: 1.5rem;
-  transition: all 0.3s linear;
+  margin-bottom: 1px;
   transform: rotate(45deg);
+  transition: all 250ms ease-in-out;
   cursor: pointer;
 }
 
 .sun {
   height: 1.5rem;
   width: 1.5rem;
+  margin-bottom: 1px;
   transform: rotate(45deg);
-  transition: all 0.3s linear;
+  transition: all 250ms ease-in-out;
   cursor: pointer;
 }

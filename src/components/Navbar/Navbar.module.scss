@@ -1,3 +1,19 @@
+.brand {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 0;
+}
+
+.toggle {
+  border: none;
+}
+
+.darktoggle {
+  display: flex;
+  align-items: center;
+}
+
 .logo {
   width: 2rem;
   height: 2rem;
