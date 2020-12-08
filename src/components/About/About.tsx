@@ -7,7 +7,7 @@ interface Props {
 
 const About: React.FC<Props> = ({ sectionReference }) => {
 	const theme = useContext(DarkModeContext);
-	const { background, color, isDark } = theme.mode;
+	const { isDark } = theme.mode;
 
 	return (
 		<section ref={sectionReference} className={isDark ? 'bg-dark' : 'bg-light'}>

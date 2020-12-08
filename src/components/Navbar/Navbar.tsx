@@ -1,4 +1,4 @@
-import React, { RefObject, useContext } from 'react';
+import React, { RefObject, useContext, useState } from 'react';
 import { Container, Nav, Navbar, NavbarProps } from 'react-bootstrap';
 import { ReactComponent as GitIcon } from '../../graphics/github-original.svg';
 import { ReactComponent as LinkedinIcon } from '../../graphics/linkedin.svg';
@@ -20,6 +20,7 @@ interface Props extends NavbarProps {
 const NavbarExtended: React.FC<Props> = ({ sections, handleScroll }) => {
 	const theme = useContext(DarkModeContext);
 	const { background, color, isDark } = theme.mode;
+	const [active, setActive] = useState<string>('');
 
 	const setTheme = (darkMode: DarkModeContext) => {
 		const isDark = darkMode.mode.isDark;
@@ -28,50 +29,73 @@ const NavbarExtended: React.FC<Props> = ({ sections, handleScroll }) => {
 
 	const renderNavLinks = (): React.ReactElement[] => {
 		return Object.keys(sections).map((section: string) => (
-			<Nav.Link eventKey={section}>{section}</Nav.Link>
+			<Nav.Link
+				eventKey={section}
+				active={active === section}
+				onClick={() => setActive(section)}
+			>
+				{section}
+			</Nav.Link>
 		));
 	};
 
+	const darkModeClassname = isDark ? 'dark' : 'light';
+	const {
+		transition,
+		brand,
+		toggle,
+		icon,
+		iconinverted,
+		darktoggle,
+		unstyled,
+		leftNav
+	} = localStyles;
+
 	return (
 		<Navbar
-			bg={isDark ? 'dark' : 'light'}
-			className={localStyles.transition}
+			bg={darkModeClassname}
+			className={transition}
 			expand={'lg'}
 			collapseOnSelect
-			variant={isDark ? 'dark' : 'light'}
+			variant={darkModeClassname}
 		>
 			<Container>
-				<Navbar.Brand href='#home' className={localStyles.brand}>
+				<Navbar.Brand
+					as={'h1'}
+					onClick={() => {
+						handleScroll(sections['Home']);
+						setActive('Home');
+					}}
+					className={brand}
+				>
 					Jonathan Bridges
 				</Navbar.Brand>
 				<Navbar.Toggle
 					aria-controls='responsive-navbar-nav'
-					className={localStyles.toggle}
+					className={toggle}
 				/>
 				<Navbar.Collapse id='responsive-navbar-nav'>
-					<Nav className='mr-auto'>
-						<Nav.Link href='https://github.com/jonathanbridges' target='_blank'>
-							<GitIcon
-								className={isDark ? localStyles.icon : localStyles.iconinverted}
-							/>
+					<Nav className={`mr-auto ${leftNav}`}>
+						<Nav.Link
+							href='https://github.com/jonathanbridges'
+							target='_blank'
+							className={unstyled}
+						>
+							<GitIcon className={isDark ? icon : iconinverted} />
 						</Nav.Link>
 						<Nav.Link
 							href='https://www.linkedin.com/in/bridgesjonathan/'
 							target='_blank'
+							className={unstyled}
 						>
-							<LinkedinIcon
-								className={isDark ? localStyles.icon : localStyles.iconinverted}
-							/>
+							<LinkedinIcon className={isDark ? icon : iconinverted} />
 						</Nav.Link>
-						<Navbar.Text className={`${localStyles['darktoggle']} nav-link`}>
+						<Navbar.Text className={darktoggle}>
 							Dark Mode
 							<DarkModeToggle onClick={() => setTheme(theme)} isDark={isDark} />
 						</Navbar.Text>
 					</Nav>
-					<Nav
-						defaultActiveKey='Home'
-						onSelect={(section: string) => handleScroll(sections[section])}
-					>
+					<Nav onSelect={(section: string) => handleScroll(sections[section])}>
 						{renderNavLinks()}
 					</Nav>
 				</Navbar.Collapse>

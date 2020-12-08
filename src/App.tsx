@@ -5,6 +5,7 @@ import NavbarExtended from './components/Navbar/Navbar';
 import { DarkModeProvider } from './utilites/ThemeProvider';
 import About from './components/About/About';
 import Mondrian from './components/Mondrian/Mondrian';
+import Home from './components/Home/Home';
 
 const App: React.FC = () => {
 	/**
@@ -37,6 +38,7 @@ const App: React.FC = () => {
 				<NavbarExtended sections={sections} handleScroll={handleScroll} />
 			</header>
 			<main ref={sections['Home']}>
+				<Home />
 				<Container>
 					<Mondrian />
 					<section>
