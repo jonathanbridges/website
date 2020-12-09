@@ -12,12 +12,12 @@ interface Props extends NavbarProps {
 	 */
 	sections: Record<string, RefObject<HTMLDivElement>>;
 	/**
-	 * Function that enables scrolling to a section on nav link selection
+	 * Event handler for scrolling to sections after clicking a nav link
 	 */
-	handleScroll: (sectionReference: React.RefObject<HTMLDivElement>) => void;
+	handleClick: (sectionReference: React.RefObject<HTMLDivElement>) => void;
 }
 
-const NavbarExtended: React.FC<Props> = ({ sections, handleScroll }) => {
+const NavbarExtended: React.FC<Props> = ({ sections, handleClick }) => {
 	const theme = useContext(DarkModeContext);
 	const { background, color, isDark } = theme.mode;
 	const [active, setActive] = useState<string>('');
@@ -30,9 +30,13 @@ const NavbarExtended: React.FC<Props> = ({ sections, handleScroll }) => {
 	const renderNavLinks = (): React.ReactElement[] => {
 		return Object.keys(sections).map((section: string) => (
 			<Nav.Link
+				key={section}
 				eventKey={section}
 				active={active === section}
-				onClick={() => setActive(section)}
+				onClick={() => {
+					handleClick(sections[section]);
+					setActive(section);
+				}}
 			>
 				{section}
 			</Nav.Link>
@@ -55,6 +59,7 @@ const NavbarExtended: React.FC<Props> = ({ sections, handleScroll }) => {
 		<Navbar
 			bg={darkModeClassname}
 			className={transition}
+			fixed={'top'}
 			expand={'lg'}
 			collapseOnSelect
 			variant={darkModeClassname}
@@ -63,7 +68,7 @@ const NavbarExtended: React.FC<Props> = ({ sections, handleScroll }) => {
 				<Navbar.Brand
 					as={'h1'}
 					onClick={() => {
-						handleScroll(sections['Home']);
+						handleClick(sections['Home']);
 						setActive('Home');
 					}}
 					className={brand}
@@ -95,9 +100,7 @@ const NavbarExtended: React.FC<Props> = ({ sections, handleScroll }) => {
 							<DarkModeToggle onClick={() => setTheme(theme)} isDark={isDark} />
 						</Navbar.Text>
 					</Nav>
-					<Nav onSelect={(section: string) => handleScroll(sections[section])}>
-						{renderNavLinks()}
-					</Nav>
+					<Nav>{renderNavLinks()}</Nav>
 				</Navbar.Collapse>
 			</Container>
 		</Navbar>

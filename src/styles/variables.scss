@@ -1,4 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
 
 $navbar-height: 3.5rem;
-$jumbotron-height: calc(100vh - #{$navbar-height});
+$navbar-height-collapsed: 3.125rem;
+$jumbotron-height: 100vh;

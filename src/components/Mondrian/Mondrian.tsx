@@ -18,6 +18,7 @@ const Mondrian: React.FC = () => {
 				const backgroundColor: string = getColor(col, row);
 				items.push(
 					<div
+						key={`${row}-${col}-${backgroundColor}`}
 						style={{
 							backgroundColor: colors[backgroundColor]
 						}}

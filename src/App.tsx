@@ -21,9 +21,9 @@ const App: React.FC = () => {
 	};
 
 	/**
-	 * Event handler for scrolling to sections
+	 * Event handler for scrolling to sections after clicking a nav link
 	 */
-	const handleScroll = (sectionReference: React.RefObject<HTMLDivElement>) => {
+	const handleClick = (sectionReference: React.RefObject<HTMLDivElement>) => {
 		if (sectionReference && sectionReference.current) {
 			sectionReference.current.scrollIntoView({
 				block: 'start',
@@ -35,7 +35,7 @@ const App: React.FC = () => {
 	return (
 		<DarkModeProvider>
 			<header className={'sticky-top'}>
-				<NavbarExtended sections={sections} handleScroll={handleScroll} />
+				<NavbarExtended sections={sections} handleClick={handleClick} />
 			</header>
 			<main ref={sections['Home']}>
 				<Home />
@@ -96,7 +96,7 @@ const App: React.FC = () => {
 							nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 							sunt in culpa qui officia deserunt mollit anim id est laborum."
 						</h2>
-					</section>{' '}
+					</section>
 					<section>
 						<h2>
 							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -107,7 +107,7 @@ const App: React.FC = () => {
 							nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 							sunt in culpa qui officia deserunt mollit anim id est laborum."
 						</h2>
-					</section>{' '}
+					</section>
 					<section>
 						<h2>
 							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -118,7 +118,7 @@ const App: React.FC = () => {
 							nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 							sunt in culpa qui officia deserunt mollit anim id est laborum."
 						</h2>
-					</section>{' '}
+					</section>
 					<section>
 						<h2>
 							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

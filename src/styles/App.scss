@@ -12,6 +12,9 @@ body {
 main,
 section {
 	scroll-margin: $navbar-height 0 0 0;
+	@include media-breakpoint-down(md) {
+		scroll-margin: $navbar-height-collapsed 0 0 0;
+	}
 }
 
 code {
@@ -95,7 +98,6 @@ h6 {
 
 .carousel {
 	width: 100vw;
-	padding-bottom: $navbar-height;
 	&-item {
 		height: $jumbotron-height;
 	}
@@ -106,9 +108,5 @@ h6 {
 		flex-direction: column;
 		height: 100%;
 		bottom: 0;
-	}
-	&-control-prev,
-	&-control-next {
-		top: -$navbar-height;
 	}
 }
