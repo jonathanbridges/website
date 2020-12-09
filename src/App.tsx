@@ -1,13 +1,21 @@
-import React, { createRef } from 'react';
-import { Container } from 'react-bootstrap';
+import React, { createRef, useEffect } from 'react';
+import AOS from 'aos';
 import './styles/App.scss';
-import NavbarExtended from './components/Navbar/Navbar';
+import 'aos/dist/aos.css';
+import { Container } from 'react-bootstrap';
 import { DarkModeProvider } from './utilites/ThemeProvider';
+import NavbarExtended from './components/Navbar/Navbar';
 import About from './components/About/About';
-import Mondrian from './components/Mondrian/Mondrian';
 import Home from './components/Home/Home';
+import Mondrian from './components/Mondrian/Mondrian';
 
 const App: React.FC = () => {
+	useEffect(() => {
+		AOS.init({
+			duration: 2000
+		});
+	}, []);
+
 	/**
 	 * Section titles and refs used to render links and scroll to sections in the navbar.
 	 */
