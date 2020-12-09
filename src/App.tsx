@@ -10,9 +10,14 @@ import Home from './components/Home/Home';
 import Mondrian from './components/Mondrian/Mondrian';
 
 const App: React.FC = () => {
+	/**
+	 * Initialize the AOS library @link http://michalsnik.github.io/aos/
+	 */
 	useEffect(() => {
 		AOS.init({
-			duration: 2000
+			delay: 25,
+			duration: 1000,
+			easing: 'ease-out-back'
 		});
 	}, []);
 
@@ -49,7 +54,7 @@ const App: React.FC = () => {
 				<Home />
 				<Container>
 					<Mondrian />
-					<section>
+					<section data-aos='fade-right'>
 						<h2>
 							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -60,7 +65,7 @@ const App: React.FC = () => {
 							sunt in culpa qui officia deserunt mollit anim id est laborum."
 						</h2>
 					</section>
-					<section>
+					<section data-aos='fade-left'>
 						<h2>
 							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut

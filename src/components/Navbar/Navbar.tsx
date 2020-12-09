@@ -43,9 +43,8 @@ const NavbarExtended: React.FC<Props> = ({ sections, handleClick }) => {
 		));
 	};
 
-	const darkModeClassname = isDark ? 'dark' : 'light';
+	const darkModeClassName = isDark ? 'dark' : 'light';
 	const {
-		transition,
 		brand,
 		toggle,
 		icon,
@@ -57,12 +56,12 @@ const NavbarExtended: React.FC<Props> = ({ sections, handleClick }) => {
 
 	return (
 		<Navbar
-			bg={darkModeClassname}
-			className={transition}
+			bg={darkModeClassName}
+			className='transition'
 			fixed={'top'}
 			expand={'lg'}
 			collapseOnSelect
-			variant={darkModeClassname}
+			variant={darkModeClassName}
 		>
 			<Container>
 				<Navbar.Brand
