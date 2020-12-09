@@ -17,6 +17,24 @@ section {
 	}
 }
 
+section {
+	display: flex !important;
+	flex-direction: column;
+	justify-content: center;
+	min-height: calc(#{$jumbotron-height} - #{$navbar-height});
+	padding-bottom: $navbar-height;
+	@include media-breakpoint-down(md) {
+		min-height: calc(#{$jumbotron-height} - #{$navbar-height-collapsed});
+		padding-bottom: $navbar-height-collapsed;
+	}
+	p {
+		margin-bottom: 1.5rem;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;
@@ -33,7 +51,6 @@ h4,
 h5,
 h6 {
 	font-family: 'Playfair Display', Georgia, serif;
-	color: black;
 	font-weight: 700;
 	margin-bottom: 0;
 }
@@ -94,6 +111,7 @@ h6 {
 	align-items: center;
 	justify-content: center;
 	height: $jumbotron-height;
+	margin-bottom: 0;
 }
 
 .carousel {

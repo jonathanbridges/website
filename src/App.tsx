@@ -1,15 +1,18 @@
-import React, { createRef, useEffect } from 'react';
+import React, { createRef, useContext, useEffect } from 'react';
 import AOS from 'aos';
 import './styles/App.scss';
 import 'aos/dist/aos.css';
 import { Container } from 'react-bootstrap';
-import { DarkModeProvider } from './utilites/ThemeProvider';
+import { DarkModeContext } from './utilites/ThemeProvider';
 import NavbarExtended from './components/Navbar/Navbar';
 import About from './components/About/About';
 import Home from './components/Home/Home';
 import Mondrian from './components/Mondrian/Mondrian';
 
 const App: React.FC = () => {
+	const theme = useContext(DarkModeContext);
+	const { color, background } = theme.mode;
+
 	/**
 	 * Initialize the AOS library @link http://michalsnik.github.io/aos/
 	 */
@@ -46,69 +49,15 @@ const App: React.FC = () => {
 	};
 
 	return (
-		<DarkModeProvider>
+		<>
 			<header className={'sticky-top'}>
 				<NavbarExtended sections={sections} handleClick={handleClick} />
 			</header>
-			<main ref={sections['Home']}>
+			<main className={`${background} ${color}`} ref={sections['Home']}>
 				<Home />
 				<Container>
-					<Mondrian />
-					<section data-aos='fade-right'>
-						<h2>
-							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-							enim ad minim veniam, quis nostrud exercitation ullamco laboris
-							nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-							reprehenderit in voluptate velit esse cillum dolore eu fugiat
-							nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-							sunt in culpa qui officia deserunt mollit anim id est laborum."
-						</h2>
-					</section>
-					<section data-aos='fade-left'>
-						<h2>
-							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-							enim ad minim veniam, quis nostrud exercitation ullamco laboris
-							nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-							reprehenderit in voluptate velit esse cillum dolore eu fugiat
-							nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-							sunt in culpa qui officia deserunt mollit anim id est laborum."
-						</h2>
-					</section>
-					<section>
-						<h2>
-							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-							enim ad minim veniam, quis nostrud exercitation ullamco laboris
-							nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-							reprehenderit in voluptate velit esse cillum dolore eu fugiat
-							nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-							sunt in culpa qui officia deserunt mollit anim id est laborum."
-						</h2>
-					</section>
-					<section>
-						<h2>
-							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-							enim ad minim veniam, quis nostrud exercitation ullamco laboris
-							nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-							reprehenderit in voluptate velit esse cillum dolore eu fugiat
-							nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-							sunt in culpa qui officia deserunt mollit anim id est laborum."
-						</h2>
-					</section>
-					<About sectionReference={sections['About']} />
-					<section>
-						<h2>
-							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-							enim ad minim veniam, quis nostrud exercitation ullamco laboris
-							nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-							reprehenderit in voluptate velit esse cillum dolore eu fugiat
-							nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-							sunt in culpa qui officia deserunt mollit anim id est laborum."
-						</h2>
+					<section ref={sections['About']} data-aos='fade-left'>
+						<About sections={sections} handleClick={handleClick} />
 					</section>
 					<section>
 						<h2>
@@ -133,6 +82,17 @@ const App: React.FC = () => {
 						</h2>
 					</section>
 					<section>
+						<h2>
+							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+							enim ad minim veniam, quis nostrud exercitation ullamco laboris
+							nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+							reprehenderit in voluptate velit esse cillum dolore eu fugiat
+							nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+							sunt in culpa qui officia deserunt mollit anim id est laborum."
+						</h2>
+					</section>
+					<section ref={sections['Projects']}>
 						<h2>
 							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -145,7 +105,7 @@ const App: React.FC = () => {
 					</section>
 				</Container>
 			</main>
-		</DarkModeProvider>
+		</>
 	);
 };
 

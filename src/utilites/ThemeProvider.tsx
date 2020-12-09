@@ -1,25 +1,31 @@
 import React, { Context, createContext, useReducer, useEffect } from 'react';
 
+/**
+ * Class name(s) applied to the background and foreground elements
+ */
+export type BackgroundClassNames = 'bg-dark transition' | 'bg-light transition';
+export type ForegroundClassnames = 'text-dark' | 'text-light';
+
+/**
+ * API for using the theme variables with the useContext hook
+ */
+export interface Theme {
+	background: BackgroundClassNames;
+	color: ForegroundClassnames;
+	isDark: boolean;
+}
+
 export const LIGHT_THEME: Theme = {
-	background: '#fafafa' as BackgroundColors,
-	color: '#000000' as ForegroundColors,
+	background: 'bg-light transition' as BackgroundClassNames,
+	color: 'text-dark' as ForegroundClassnames,
 	isDark: false
 };
 
 export const DARK_THEME: Theme = {
-	background: '#333333' as BackgroundColors,
-	color: '#fafafa' as ForegroundColors,
+	background: 'bg-dark transition' as BackgroundClassNames,
+	color: 'text-light' as ForegroundClassnames,
 	isDark: true
 };
-
-export type BackgroundColors = '#333333' | '#fafafa';
-export type ForegroundColors = '#000000' | '#fafafa';
-
-export interface Theme {
-	background: BackgroundColors;
-	color: ForegroundColors;
-	isDark: boolean;
-}
 
 interface DarkModeContext {
 	mode: Theme;

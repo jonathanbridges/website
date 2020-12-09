@@ -19,8 +19,21 @@ interface Props extends NavbarProps {
 
 const NavbarExtended: React.FC<Props> = ({ sections, handleClick }) => {
 	const theme = useContext(DarkModeContext);
-	const { background, color, isDark } = theme.mode;
+	const { isDark } = theme.mode;
 	const [active, setActive] = useState<string>('');
+
+	const {
+		brand,
+		toggle,
+		icon,
+		iconinverted,
+		darktoggle,
+		link,
+		unstyled,
+		leftNav
+	} = localStyles;
+
+	const variant = isDark ? 'dark' : 'light';
 
 	const setTheme = (darkMode: DarkModeContext) => {
 		const isDark = darkMode.mode.isDark;
@@ -31,6 +44,7 @@ const NavbarExtended: React.FC<Props> = ({ sections, handleClick }) => {
 		return Object.keys(sections).map((section: string) => (
 			<Nav.Link
 				key={section}
+				className={isDark ? link : ''}
 				eventKey={section}
 				active={active === section}
 				onClick={() => {
@@ -43,25 +57,14 @@ const NavbarExtended: React.FC<Props> = ({ sections, handleClick }) => {
 		));
 	};
 
-	const darkModeClassName = isDark ? 'dark' : 'light';
-	const {
-		brand,
-		toggle,
-		icon,
-		iconinverted,
-		darktoggle,
-		unstyled,
-		leftNav
-	} = localStyles;
-
 	return (
 		<Navbar
-			bg={darkModeClassName}
+			bg={variant}
 			className='transition'
 			fixed={'top'}
 			expand={'lg'}
 			collapseOnSelect
-			variant={darkModeClassName}
+			variant={variant}
 		>
 			<Container>
 				<Navbar.Brand

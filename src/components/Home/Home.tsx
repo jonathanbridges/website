@@ -6,43 +6,44 @@ import { DarkModeContext } from '../../utilites/ThemeProvider';
 const Home: React.FC = () => {
 	const theme = useContext(DarkModeContext);
 	const { background, color, isDark } = theme.mode;
-	const bgClassName = isDark ? 'bg-dark transition' : 'bg-light transition';
-	const textClassName = isDark
-		? 'text-light transition'
-		: 'text-dark transition';
-	const { h1, light } = localStyles;
+	const { h1, carousel } = localStyles;
 
 	return (
-		<Jumbotron fluid className={bgClassName}>
-			<Carousel fade className={isDark ? '' : `${light} transition`}>
+		<Jumbotron fluid className={background}>
+			<Carousel
+				pause={false}
+				fade
+				className={isDark ? '' : `${carousel} transition`}
+			>
 				<Carousel.Item interval={2000}>
-					<Carousel.Caption>
-						<h1 className={`${textClassName} ${h1}`}>Hi!</h1>
-						<h2 className={textClassName}>I'm Jonathan</h2>
+					<Carousel.Caption className={color}>
+						<h1 className={h1}>Hi!</h1>
+						<h2>I'm Jonathan</h2>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item interval={3000}>
-					<Carousel.Caption>
-						<h2 className={textClassName}>Thanks for stopping by 😃</h2>
-					</Carousel.Caption>
-				</Carousel.Item>
-				<Carousel.Item interval={3500}>
-					<Carousel.Caption>
-						<h2 className={textClassName}>
-							I'm a software developer in San Francisco
+					<Carousel.Caption className={color}>
+						<h2>
+							Thanks for stopping by
+							<span aria-label='Smiley Face' role='img' className='ml-2'>
+								😃
+							</span>
 						</h2>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item interval={3500}>
-					<Carousel.Caption>
-						<h2 className={textClassName}>
-							Check out the rest of my site to learn more about me.
-						</h2>
+					<Carousel.Caption className={color}>
+						<h2>I'm a software developer in San Francisco</h2>
+					</Carousel.Caption>
+				</Carousel.Item>
+				<Carousel.Item interval={3500}>
+					<Carousel.Caption className={color}>
+						<h2>Check out the rest of my site to learn more about me.</h2>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item interval={8000}>
-					<Carousel.Caption>
-						<h3 className={textClassName}>Oh, and here's my résumé</h3>
+					<Carousel.Caption className={color}>
+						<h4>Oh, and here's my resume</h4>
 					</Carousel.Caption>
 				</Carousel.Item>
 			</Carousel>

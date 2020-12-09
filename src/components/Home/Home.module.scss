@@ -2,9 +2,10 @@
 
 .h1 {
 	font-size: 3.75rem;
+	font-weight: 700;
 }
 
-.light {
+.carousel {
 	> ol {
 		li {
 			background-color: $dark;
