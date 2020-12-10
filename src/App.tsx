@@ -11,7 +11,7 @@ import Mondrian from './components/Mondrian/Mondrian';
 
 const App: React.FC = () => {
 	const theme = useContext(DarkModeContext);
-	const { color, background } = theme.mode;
+	const { color, background, isDark } = theme.mode;
 
 	/**
 	 * Initialize the AOS library @link http://michalsnik.github.io/aos/
