@@ -1,0 +1,21 @@
+@import '../../styles//variables.scss';
+
+.grid {
+	display: grid;
+	max-width: 100%;
+	grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+	padding: 1rem;
+	grid-gap: 1rem;
+	@include media-breakpoint-down(md) {
+		grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+	}
+	@include media-breakpoint-down(sm) {
+		grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+	}
+}
+
+.inverted {
+	path {
+		fill: $white;
+	}
+}

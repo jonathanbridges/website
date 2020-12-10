@@ -33,7 +33,9 @@ const Home: React.FC = () => {
 				</Carousel.Item>
 				<Carousel.Item interval={3500}>
 					<Carousel.Caption className={color}>
-						<h2 className='mb-1'>I'm a software developer in San Francisco</h2>
+						<h2 className='mb-1'>
+							I'm a software developer based in San Francisco
+						</h2>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item interval={3500}>

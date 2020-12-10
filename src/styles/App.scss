@@ -129,9 +129,29 @@ h6 {
 	}
 }
 
+.tooltip {
+	font-family: 'Lato', 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
 /**
  * Global styles
  */
 .transition {
 	transition: all 250ms ease-in-out;
+}
+
+.section-span {
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	opacity: 0.5;
+	margin-bottom: 1rem;
+}
+
+.section-header {
+	font-size: 1.25rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	margin-bottom: 4rem;
 }
