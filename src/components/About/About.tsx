@@ -1,5 +1,6 @@
 import React, { RefObject } from 'react';
 import { Button } from 'react-bootstrap';
+import SectionHeader from '../SectionHeader/SectionHeader';
 
 interface Props {
 	/**
@@ -14,8 +15,7 @@ interface Props {
 
 const About: React.FC<Props> = ({ sections, handleClick }) => (
 	<>
-		<span className='section-span'>About Me</span>
-		<h2 className='section-header'>Who Am I?</h2>
+		<SectionHeader spanText='About Me' headerText='Who Am I?' />
 		<p>
 			<strong>I'm a software developer</strong> at{' '}
 			<a

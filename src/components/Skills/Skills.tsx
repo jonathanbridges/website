@@ -1,4 +1,4 @@
-import React, { SVGProps, useContext } from 'react';
+import React, { useContext } from 'react';
 import { DarkModeContext } from '../../utilites/ThemeProvider';
 import { ReactComponent as ReactIcon } from '../../graphics/react-original.svg';
 import { ReactComponent as TypescriptIcon } from '../../graphics/typescript-plain.svg';
@@ -24,11 +24,15 @@ import { ReactComponent as RailsIcon } from '../../graphics/rails-plain.svg';
 import { ReactComponent as ReduxIcon } from '../../graphics/redux-original.svg';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import localStyles from './Skills.module.scss';
+import SectionHeader from '../SectionHeader/SectionHeader';
 
 const Skills: React.FC = () => {
 	const theme = useContext(DarkModeContext);
 	const { isDark } = theme.mode;
-	const { grid, inverted } = localStyles;
+	const { grid, inverted, svg } = localStyles;
+	const animatedSvgClassname = isDark
+		? `${inverted} transition`
+		: `${svg} transition`;
 
 	/**
 	 * Dev icons
@@ -37,7 +41,7 @@ const Skills: React.FC = () => {
 		<ReactIcon />,
 		<TypescriptIcon />,
 		<ApolloIcon />,
-		<NextJSIcon className={isDark ? `${inverted} transition` : ''} />,
+		<NextJSIcon className={animatedSvgClassname} />,
 		<JavascriptIcon />,
 		<HTMLIcon />,
 		<CSSIcon />,
@@ -50,7 +54,7 @@ const Skills: React.FC = () => {
 		<PostgresIcon />,
 		<MySQLIcon />,
 		<NodeJSIcon />,
-		<ExpressIcon className={isDark ? `${inverted} transition` : ''} />,
+		<ExpressIcon className={animatedSvgClassname} />,
 		<AmazonIcon />,
 		<GitIcon />,
 		<HerokuIcon />,
@@ -88,6 +92,7 @@ const Skills: React.FC = () => {
 
 	/**
 	 * Renders a tooltip showing the title for each dev icon
+	 *
 	 * @param iconElement the dev icon
 	 * @param iconTitle the title associated with the icon
 	 */
@@ -106,21 +111,16 @@ const Skills: React.FC = () => {
 	/**
 	 * Renders all icons
 	 */
-	const renderIcons = (): React.ReactElement[] => (
-		icons.map((icon, iconIdx) => overlayWrapper(icon, iconTitles[iconIdx]))
-	);
+	const renderIcons = (): React.ReactElement[] =>
+		icons.map((icon, iconIdx) => overlayWrapper(icon, iconTitles[iconIdx]));
 
 	return (
 		<>
-			<span className='section-span'>Skills</span>
-			<h2
-				data-aos='fade-up'
-				data-aos-easing='ease-in'
-				data-aos-duration='250'
-				className='section-header'
-			>
-				My Skills
-			</h2>
+			<SectionHeader
+				spanText='Skills'
+				headerText='My Skills'
+				useHeaderAnimation
+			/>
 			<div data-aos='flip-down' data-aos-duration='1000' className={grid}>
 				{renderIcons()}
 			</div>

@@ -1,0 +1,63 @@
+@import '../../styles/variables.scss';
+
+.wrapper {
+	position: relative;
+	&:before {
+		content: '';
+		display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(2.5rem / 2 - 0.25rem / 2);
+		width: 0.25rem;
+		background: red;
+	}
+}
+
+.article {
+	display: flex;
+	flex-wrap: none;
+	&:not(:last-child) {
+		margin-bottom: 2rem;
+	}
+}
+
+.label {
+	display: inline-flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	background-color: #f2f3f7;
+	padding: 0.75rem 1rem 1rem 1rem;
+	color: $dark;
+	border-radius: $border-radius;
+	margin-top: -0.25rem;
+	margin-left: 1rem;
+	> h6 {
+		font-size: 1.25rem;
+		margin-bottom: 0;
+	}
+	> span {
+		font-family: 'Playfair Display', Georgia, serif;
+		font-size: 18px;
+		color: $text-muted;
+	}
+	> p:first-of-type {
+		margin-top: 1rem;
+	}
+	> p:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+}
+
+.icon {
+	min-width: 2.5rem;
+	height: 2.5rem;
+  background-color: #f2f3f7;
+  z-index: 5;
+	border-radius: 50%;
+	box-shadow: 0 0 0 0.3rem red;
+	&:last-child {
+		max-width: 2.5rem;
+	}
+}

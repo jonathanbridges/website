@@ -29,6 +29,7 @@ section {
 	}
 	p {
 		margin-bottom: 2rem;
+		font-size: $font-size-sm;
 		&:last-child {
 			margin-bottom: 0;
 		}
@@ -138,20 +139,4 @@ h6 {
  */
 .transition {
 	transition: all 250ms ease-in-out;
-}
-
-.section-span {
-	font-size: 0.75rem;
-	text-transform: uppercase;
-	letter-spacing: 5px;
-	opacity: 0.5;
-	margin-bottom: 1rem;
-}
-
-.section-header {
-	font-size: 1.25rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 5px;
-	margin-bottom: 4rem;
 }
