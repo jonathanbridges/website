@@ -1,6 +1,10 @@
 import React, { useContext } from 'react';
 import SectionHeader from '../SectionHeader/SectionHeader';
 import { DarkModeContext } from '../../utilites/ThemeProvider';
+import { ReactComponent as CodeIcon } from '../../graphics/code.svg';
+import { ReactComponent as SupportIcon } from '../../graphics/support.svg';
+import { ReactComponent as BriefcaseIcon } from '../../graphics/briefcase-line.svg';
+import { ReactComponent as MicIcon } from '../../graphics/microphone-line.svg';
 import localStyles from './Experience.module.scss';
 
 const Experience: React.FC = () => {
@@ -17,10 +21,15 @@ const Experience: React.FC = () => {
 			/>
 			<div className={wrapper}>
 				<article className={article}>
-					<div className={icon}>
-						<i className='icon-code'></i>
+					<div className={`${icon} bg-primary`}>
+						<CodeIcon />
 					</div>
-					<div className={label} data-aos='fade-left'>
+					<div
+						className={label}
+						data-aos='fade-left'
+						data-aos-easing='ease-in-sine'
+						data-aos-duration='250'
+					>
 						<h6>
 							Software Engineer I at{' '}
 							<a
@@ -35,10 +44,15 @@ const Experience: React.FC = () => {
 					</div>
 				</article>
 				<article className={article}>
-					<div className={icon}>
-						<i className='icon-code'></i>
+					<div className={`${icon} bg-success`}>
+						<CodeIcon />
 					</div>
-					<div className={label} data-aos='fade-left'>
+					<div
+						className={label}
+						data-aos='fade-left'
+						data-aos-easing='ease-in-sine'
+						data-aos-duration='250'
+					>
 						<h6>
 							Software Developer at{' '}
 							<a
@@ -58,10 +72,15 @@ const Experience: React.FC = () => {
 					</div>
 				</article>
 				<article className={article}>
-					<div className={icon}>
-						<i className='icon-help'></i>
+					<div className={`${icon} bg-warning`}>
+						<SupportIcon />
 					</div>
-					<div className={label} data-aos='fade-right'>
+					<div
+						className={label}
+						data-aos='fade-right'
+						data-aos-easing='ease-in-sine'
+						data-aos-duration='250'
+					>
 						<h6>
 							Customer Support Technical Lead at{' '}
 							<a
@@ -88,10 +107,15 @@ const Experience: React.FC = () => {
 					</div>
 				</article>
 				<article className={article}>
-					<div className={icon}>
-						<i className='icon-help'></i>
+					<div className={`${icon} bg-info`}>
+						<SupportIcon />
 					</div>
-					<div className={label} data-aos='fade-left'>
+					<div
+						className={label}
+						data-aos='fade-left'
+						data-aos-easing='ease-in-sine'
+						data-aos-duration='250'
+					>
 						<h6>
 							Client Experience / Operations Associate at{' '}
 							<a
@@ -116,17 +140,22 @@ const Experience: React.FC = () => {
 							accounts.
 						</p>
 						<p>
-							Out of a team that scaled from 20 to over 100 agents, I routinely
+							Out of a team that scaled from 20 to over 250 agents, I routinely
 							led the CX team by total ticket solves, while retaining a 98%
 							positive rating on tickets with client ratings.
 						</p>
 					</div>
 				</article>
 				<article className={article}>
-					<div className={icon}>
-						<i className='icon-briefcase3'></i>
+					<div className={`${icon} bg-primary`}>
+						<BriefcaseIcon className='mt-n1' />
 					</div>
-					<div className={label} data-aos='fade-up'>
+					<div
+						className={label}
+						data-aos='fade-up'
+						data-aos-easing='ease-in-sine'
+						data-aos-duration='250'
+					>
 						<h6>
 							Purchasing Specialist at{' '}
 							<a
@@ -149,10 +178,15 @@ const Experience: React.FC = () => {
 					</div>
 				</article>
 				<article className={article}>
-					<div className={icon}>
-						<i className='icon-microphone'></i>
+					<div className={`${icon} bg-success`}>
+						<MicIcon />
 					</div>
-					<div className={label} data-aos='fade-left'>
+					<div
+						className={label}
+						data-aos='fade-left'
+						data-aos-easing='ease-in-sine'
+						data-aos-duration='250'
+					>
 						<h6>
 							Editor / Audio Engineer at{' '}
 							<a
@@ -173,10 +207,15 @@ const Experience: React.FC = () => {
 					</div>
 				</article>
 				<article className={article}>
-					<div className={icon}>
-						<i className='icon-microphone'></i>
+					<div className={`${icon} bg-warning`}>
+						<MicIcon />
 					</div>
-					<div className={label} data-aos='fade-left'>
+					<div
+						className={label}
+						data-aos='fade-left'
+						data-aos-easing='ease-in-sine'
+						data-aos-duration='250'
+					>
 						<h6>
 							Studio Assistant at{' '}
 							<a
@@ -197,9 +236,7 @@ const Experience: React.FC = () => {
 					</div>
 				</article>
 				<article className='timeline-entry begin'>
-					<div className='timeline-entry-inner'>
-						<div className={icon}></div>
-					</div>
+					<div className={`${icon} bg-info`}></div>
 				</article>
 			</div>
 		</>

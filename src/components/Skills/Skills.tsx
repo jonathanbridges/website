@@ -121,7 +121,7 @@ const Skills: React.FC = () => {
 				headerText='My Skills'
 				useHeaderAnimation
 			/>
-			<div data-aos='flip-down' data-aos-duration='1000' className={grid}>
+			<div data-aos='flip-down' data-aos-duration='500' className={grid}>
 				{renderIcons()}
 			</div>
 		</>

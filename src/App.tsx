@@ -21,8 +21,8 @@ const App: React.FC = () => {
 	useEffect(() => {
 		AOS.init({
 			delay: 25,
-			duration: 1000,
-			easing: 'ease-out-back'
+			duration: 500,
+			easing: 'ease-in-sine'
 		});
 	}, []);
 
