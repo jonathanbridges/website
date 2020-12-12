@@ -1,3 +1,16 @@
+/**
+ * Boostrap variable additions
+ */
+$theme-colors: (
+	'custom-khoros': #00004b,
+	'custom-brandly': #ea1947,
+	'custom-tint': #fa5a3a,
+	'custom-stitch-fix': #21beb0,
+	'custom-frb': #0a382b,
+	'custom-digifx': #75bd4c,
+	'custom-soundtrack': #404df2
+);
+
 @import '~bootstrap/scss/bootstrap';
 
 $navbar-height: 3.5rem;

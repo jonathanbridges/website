@@ -21,7 +21,7 @@ const Experience: React.FC = () => {
 			/>
 			<div className={wrapper}>
 				<article className={article}>
-					<div className={`${icon} bg-primary`}>
+					<div className={`${icon} bg-custom-khoros`}>
 						<CodeIcon />
 					</div>
 					<div
@@ -44,7 +44,7 @@ const Experience: React.FC = () => {
 					</div>
 				</article>
 				<article className={article}>
-					<div className={`${icon} bg-success`}>
+					<div className={`${icon} bg-custom-brandly`}>
 						<CodeIcon />
 					</div>
 					<div
@@ -72,7 +72,7 @@ const Experience: React.FC = () => {
 					</div>
 				</article>
 				<article className={article}>
-					<div className={`${icon} bg-warning`}>
+					<div className={`${icon} bg-custom-tint`}>
 						<SupportIcon />
 					</div>
 					<div
@@ -107,7 +107,7 @@ const Experience: React.FC = () => {
 					</div>
 				</article>
 				<article className={article}>
-					<div className={`${icon} bg-info`}>
+					<div className={`${icon} bg-custom-stitch-fix`}>
 						<SupportIcon />
 					</div>
 					<div
@@ -147,7 +147,7 @@ const Experience: React.FC = () => {
 					</div>
 				</article>
 				<article className={article}>
-					<div className={`${icon} bg-primary`}>
+					<div className={`${icon} bg-custom-frb`}>
 						<BriefcaseIcon className='mt-n1' />
 					</div>
 					<div
@@ -178,7 +178,7 @@ const Experience: React.FC = () => {
 					</div>
 				</article>
 				<article className={article}>
-					<div className={`${icon} bg-success`}>
+					<div className={`${icon} bg-custom-digifx`}>
 						<MicIcon />
 					</div>
 					<div
@@ -207,7 +207,7 @@ const Experience: React.FC = () => {
 					</div>
 				</article>
 				<article className={article}>
-					<div className={`${icon} bg-warning`}>
+					<div className={`${icon} bg-custom-soundtrack`}>
 						<MicIcon />
 					</div>
 					<div
@@ -236,7 +236,7 @@ const Experience: React.FC = () => {
 					</div>
 				</article>
 				<article className='timeline-entry begin'>
-					<div className={`${icon} bg-info`}></div>
+					<div className={icon}></div>
 				</article>
 			</div>
 		</>

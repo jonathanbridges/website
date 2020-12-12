@@ -7,7 +7,7 @@
 		display: flex;
 		position: absolute;
 		top: 0;
-		bottom: 0;
+		bottom: 3rem;
 		left: calc(3rem / 2 - 0.25rem / 2);
 		width: 0.25rem;
 		background: #e8e9ec;
@@ -27,17 +27,20 @@
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
-	background-color: #e8e9ec;
-	padding: 0.8125rem 1rem 1rem 1rem;
-	color: $dark;
-	border-radius: $border-radius;
 	margin-top: -0.25rem;
 	margin-left: 1.5rem;
+	width: 100%;
+	padding: 0.8125rem 1rem 1rem 1rem;
+	background-color: #e8e9ec;
+	color: $dark;
+	border-radius: $border-radius;
 	> h6 {
 		font-size: 1.25rem;
 		margin-bottom: 0;
+		max-width: 75%;
 	}
 	> span {
+		margin-left: auto;
 		font-family: 'Playfair Display', Georgia, serif;
 		font-size: 18px;
 		color: $text-muted;
@@ -52,14 +55,14 @@
 		content: '';
 		display: block;
 		position: absolute;
+		top: 1.1875rem;
+		left: 0;
 		width: 0;
 		height: 0;
+		margin-left: -0.5625rem;
 		border-style: solid;
 		border-width: 0.5625rem 0.5625rem 0.5625rem 0;
 		border-color: transparent #e8e9ec transparent transparent;
-		left: 0;
-		top: 1.1875rem;
-		margin-left: -0.5625rem;
 	}
 }
 
@@ -71,9 +74,12 @@
 	height: 3rem;
 	z-index: 5;
 	border-radius: 50%;
-	box-shadow: 0 0 0 0.3rem #e8e9ec;
+	&:not(:last-child) {
+		box-shadow: 0 0 0 0.3rem #e8e9ec;
+	}
 	&:last-child {
 		max-width: 2.5rem;
+		border: 0.3rem solid  #e8e9ec;
 	}
 	> svg {
 		height: 50%;
