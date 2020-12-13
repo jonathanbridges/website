@@ -10,11 +10,20 @@ const Projects: React.FC = () => {
 	const { isDark } = theme.mode;
 	const { grid, project, description, button, light, dark } = localStyles;
 
+	/**
+	 * Enum used by the renderProjectButton function
+	 */
 	enum ProjectButtonType {
 		'Live',
 		'Github'
 	}
 
+	/**
+	 * Functinon that renders the buttons for a project
+	 *
+	 * @param href The external link
+	 * @param type The button type
+	 */
 	const renderProjectButton = (
 		href: string,
 		type: ProjectButtonType
