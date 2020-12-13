@@ -1,0 +1,84 @@
+@import '../../styles//variables.scss';
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 1rem;
+	@include media-breakpoint-down(sm) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.project {
+	background-size: cover;
+	background-position: left top;
+	background-repeat: no-repeat;
+	min-height: 33vh;
+}
+
+.description {
+	padding: 1rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	&,
+	& > h3,
+	& > span {
+		color: $white;
+		font-family: 'Lato', 'Roboto', 'Helvetica Neue', sans-serif;
+		transition: 0.3s;
+	}
+	height: 100%;
+	background-color: $primary;
+	opacity: 0;
+	> h3 {
+		text-transform: uppercase;
+		font-size: 1.25rem;
+		transform: translate3d(0, -1rem, 0);
+	}
+	> span {
+		display: inline-flex;
+		font-size: 0.875rem;
+		transform: translate3d(0, 1rem, 0);
+	}
+	> p {
+		position: absolute;
+		bottom: 1rem;
+		> span {
+			margin-right: 1rem;
+		}
+	}
+	&:hover,
+	&:focus-within {
+		opacity: 1;
+		h3 {
+			transform: translate3d(0, 0, 0);
+		}
+		span {
+			transform: translate3d(0, 0, 0);
+		}
+	}
+}
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	> svg {
+    width: 1rem;
+		margin-right: 0.25rem;
+	}
+}
+
+.light {
+	path {
+		fill: $dark;
+	}
+}
+
+.dark {
+	path {
+		fill: $light;
+	}
+}

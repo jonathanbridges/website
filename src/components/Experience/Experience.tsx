@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import SectionHeader from '../SectionHeader/SectionHeader';
-import { DarkModeContext } from '../../utilites/ThemeProvider';
 import { ReactComponent as CodeIcon } from '../../graphics/code.svg';
 import { ReactComponent as SupportIcon } from '../../graphics/support.svg';
 import { ReactComponent as BriefcaseIcon } from '../../graphics/briefcase-line.svg';
@@ -8,8 +7,6 @@ import { ReactComponent as MicIcon } from '../../graphics/microphone-line.svg';
 import localStyles from './Experience.module.scss';
 
 const Experience: React.FC = () => {
-	const theme = useContext(DarkModeContext);
-	const { background, color, isDark } = theme.mode;
 	const { article, label, icon, wrapper } = localStyles;
 
 	return (
