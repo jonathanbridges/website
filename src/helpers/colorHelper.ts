@@ -1,7 +1,7 @@
 import { colMap, rowMap, ranks } from './definitionsHelper';
 
 /**
- * Helper function that retrieves the background color for a Mondrovian item.
+ * Helper function that retrieves the background color for an item in the Mondrian easter egg.
  *
  * @param col the column the item is in.
  * @param row the row the item is in.

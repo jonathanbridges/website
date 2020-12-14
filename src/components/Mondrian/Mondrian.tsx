@@ -1,12 +1,17 @@
 import React, { useState, useMemo } from 'react';
 import localStyles from './Mondrian.module.scss';
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import getColor from '../../helpers/colorHelper';
 import { colors } from '../../helpers/definitionsHelper';
 
+/**
+ * An easter egg of of Mondrian's unfinished New York City 3 using CSS grid
+ *
+ * @link https://www.museothyssen.org/en/collection/artists/mondrian-piet/new-york-city-3-unfinished
+ */
 const Mondrian: React.FC = () => {
 	const [showModal, setShowModal] = useState<boolean>(false);
-	const { body, shadow } = localStyles;
+	const { button, body, shadow } = localStyles;
 
 	/**
 	 * Function used to generate and style grid items.
@@ -39,9 +44,26 @@ const Mondrian: React.FC = () => {
 
 	return (
 		<>
-			<Button onClick={toggleShowModal}>Show Mondrian</Button>
+			<Button onClick={toggleShowModal} className={button}>
+				What are you looking here for anyways?
+			</Button>
 			<Modal centered show={showModal} onHide={toggleShowModal}>
-				<Modal.Body className={body}>{MemoizedGridItems}</Modal.Body>
+				<OverlayTrigger
+					placement='top'
+					overlay={
+						<Tooltip id='title'>
+							A CSS grid version of Mondrian's New York City 3
+						</Tooltip>
+					}
+				>
+					<a
+						href='https://www.museothyssen.org/en/collection/artists/mondrian-piet/new-york-city-3-unfinished'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						<Modal.Body className={body}>{MemoizedGridItems}</Modal.Body>
+					</a>
+				</OverlayTrigger>
 			</Modal>
 		</>
 	);

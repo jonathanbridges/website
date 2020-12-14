@@ -54,7 +54,7 @@ const App: React.FC = () => {
 
 	return (
 		<>
-			<header className={'sticky-top'}>
+			<header>
 				<NavbarExtended sections={sections} handleClick={handleClick} />
 			</header>
 			<main className={`${background} ${color}`} ref={sections['Home']}>
@@ -75,6 +75,7 @@ const App: React.FC = () => {
 					<section ref={sections['Contact']}>
 						<Contact />
 					</section>
+					<Mondrian />
 				</Container>
 			</main>
 		</>

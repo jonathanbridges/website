@@ -1,12 +1,12 @@
 /**
- * allow Typescript indexing
+ * Allow Typescript indexing
  */
 export interface Indexable {
   [key: string]: any;
 }
 
 /**
- * color ranks for Mondrian
+ * Color ranks for the Mondrian easter egg
  */
 export const ranks: Indexable = {
   red: 5,
@@ -17,7 +17,7 @@ export const ranks: Indexable = {
 };
 
 /**
- * column colors for Mondrian
+ * Column colors for the Mondrian easter egg
  */
 export const colMap: Indexable = {
   2: "white",
@@ -33,7 +33,7 @@ export const colMap: Indexable = {
 };
 
 /**
- * row colors for Mondrian
+ * Row colors for the Mondrian easter egg
  */
 export const rowMap: Indexable = {
   2: "yellow",
@@ -46,7 +46,7 @@ export const rowMap: Indexable = {
 };
 
 /**
- * background colors for Mondrian
+ * Background colors for the Mondrian easter egg
  */
 export const colors: Indexable = {
   red: "rgb(236, 44, 40)",

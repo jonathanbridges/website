@@ -68,63 +68,78 @@ const Contact: React.FC = () => {
 				headerText='Contact'
 				useHeaderAnimation
 			/>
-			<Form onSubmit={handleSubmit}>
-				<Form.Group controlId='subject'>
-					<Form.Label>Subject</Form.Label>
-					<Form.Control
-						required
-						type='text'
-						name='subject'
-						placeholder='Enter a subject'
-						disabled={isSubmitting}
-					/>
-				</Form.Group>
-				<div className='d-sm-flex justify-content-between'>
-					<Form.Group controlId='name' className='flex-fill mr-sm-3'>
-						<Form.Label>Name</Form.Label>
+			<div className='d-sm-flex'>
+				<Form
+					onSubmit={handleSubmit}
+					className='flex-fill mr-sm-3'
+					data-aos='flip-left'
+				>
+					<Form.Group controlId='subject'>
+						<Form.Label>Subject</Form.Label>
 						<Form.Control
+							required
 							type='text'
-							name='name'
-							placeholder='Enter your name'
-							required
+							name='subject'
+							placeholder='Enter a subject'
 							disabled={isSubmitting}
 						/>
 					</Form.Group>
-					<Form.Group controlId='email' className='flex-fill'>
-						<Form.Label>Email</Form.Label>
+					<div className='d-md-flex justify-content-between'>
+						<Form.Group controlId='name' className='flex-fill mr-sm-3'>
+							<Form.Label>Name</Form.Label>
+							<Form.Control
+								type='text'
+								name='name'
+								placeholder='Enter your name'
+								required
+								disabled={isSubmitting}
+							/>
+						</Form.Group>
+						<Form.Group controlId='email' className='flex-fill'>
+							<Form.Label>Email</Form.Label>
+							<Form.Control
+								type='email'
+								name='email'
+								placeholder='Enter your email'
+								required
+								disabled={isSubmitting}
+							/>
+						</Form.Group>
+					</div>
+					<Form.Group controlId='message'>
+						<Form.Label>Message</Form.Label>
 						<Form.Control
-							type='email'
-							name='email'
-							placeholder='Enter your email'
+							as='textarea'
+							rows={5}
+							name='message'
+							placeholder='Enter a message'
 							required
 							disabled={isSubmitting}
 						/>
 					</Form.Group>
-				</div>
-				<Form.Group controlId='message'>
-					<Form.Label>Message</Form.Label>
-					<Form.Control
-						as='textarea'
-						rows={5}
-						name='message'
-						placeholder='Enter a message'
-						required
-						disabled={isSubmitting}
-					/>
-				</Form.Group>
-				{status && (
-					<p className={!status.ok ? 'text-danger' : ''}>{status.message}</p>
-				)}
-				<Form.Group className='d-flex align-end justify-content-center flex-fill'>
-					<Button
-						variant={isDark ? 'outline-light' : 'outline-dark'}
-						type='submit'
-						disabled={isSubmitting}
-					>
-						Send Message
-					</Button>
-				</Form.Group>
-			</Form>
+					{status && (
+						<p className={!status.ok ? 'text-danger' : ''}>{status.message}</p>
+					)}
+					<Form.Group className='d-flex align-end justify-content-center flex-fill'>
+						<Button
+							variant={isDark ? 'outline-light' : 'outline-dark'}
+							type='submit'
+							disabled={isSubmitting}
+						>
+							Send Message
+						</Button>
+					</Form.Group>
+				</Form>
+				<div
+					style={{
+						backgroundImage: 'url(images/about.jpg)',
+						backgroundRepeat: 'no-repeat',
+						backgroundSize: 'cover',
+						backgroundPosition: 'center center'
+					}}
+					className='w-50 rounded shadow-sm'
+				/>
+			</div>
 		</>
 	);
 };

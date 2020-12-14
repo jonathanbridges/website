@@ -1,5 +1,5 @@
 /**
- * Boostrap variable additions
+ * Bootstrap variable overrides
  */
 $theme-colors: (
 	'custom-khoros': #00004b,
@@ -11,8 +11,13 @@ $theme-colors: (
 	'custom-soundtrack': #404df2
 );
 
+$font-family-sans-serif: 'Lato', 'Roboto', 'Helvetica Neue', sans-serif;
+
 @import '~bootstrap/scss/bootstrap';
 
+/**
+ * Custom variables
+ */
 $navbar-height: 3.5rem;
 $navbar-height-collapsed: 3.125rem;
 $jumbotron-height: 100vh;
