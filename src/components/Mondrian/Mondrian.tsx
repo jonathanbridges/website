@@ -52,7 +52,7 @@ const Mondrian: React.FC = () => {
 					placement='top'
 					overlay={
 						<Tooltip id='title'>
-							A CSS grid version of Mondrian's New York City 3
+							A CSS grid version of Mondrian's New York City, 3
 						</Tooltip>
 					}
 				>

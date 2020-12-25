@@ -74,11 +74,11 @@ const Projects: React.FC = () => {
 									ClickCamp
 								</a>
 							</h3>
-							<span>A single-page web app inspired by HipCamp</span>
-							<span>
+							<p>A single-page web app inspired by HipCamp</p>
+							<p>
 								Ruby on Rails, ReactJS, Redux, PostgreSQL, GoogleMaps API,
 								Amazon S3
-							</span>
+							</p>
 							<p className='icon'>
 								{renderProjectButton(
 									'https://click-camp.herokuapp.com',
@@ -108,8 +108,8 @@ const Projects: React.FC = () => {
 									Twitter GeoTrends
 								</a>
 							</h3>
-							<span>A data visualization of trending items on Twitter</span>
-							<span>d3, ExpressJS</span>
+							<p>A data visualization of trending items on Twitter</p>
+							<p>d3, ExpressJS</p>
 							<p className='icon'>
 								{renderProjectButton(
 									'https://twitter-geotrends.herokuapp.com',
@@ -139,10 +139,10 @@ const Projects: React.FC = () => {
 									Spacey
 								</a>
 							</h3>
-							<span>
+							<p>
 								A single-page website that aggregates space industry content
-							</span>
-							<span>MongoDB, ExpressJS, ReactJS, Node</span>
+							</p>
+							<p>MongoDB, ExpressJS, ReactJS, Node</p>
 							<p className='icon'>
 								{renderProjectButton(
 									'https://spacey-aa.herokuapp.com',
@@ -172,8 +172,8 @@ const Projects: React.FC = () => {
 									Winter Design Build
 								</a>
 							</h3>
-							<span>A portfolio website built using create-react-app</span>
-							<span>ReactJS, HTML, CSS</span>
+							<p>A portfolio website built using create-react-app</p>
+							<p>ReactJS, HTML, CSS</p>
 							<p className='icon'>
 								{renderProjectButton(
 									'https://winterdesignbuild.com',

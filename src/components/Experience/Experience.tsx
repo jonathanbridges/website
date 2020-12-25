@@ -25,7 +25,7 @@ const Experience: React.FC = () => {
 						className={label}
 						data-aos='fade-left'
 						data-aos-easing='ease-in-sine'
-						data-aos-duration='250'
+						data-aos-duration='300'
 					>
 						<h6>
 							Software Engineer I at{' '}
@@ -48,7 +48,7 @@ const Experience: React.FC = () => {
 						className={label}
 						data-aos='fade-left'
 						data-aos-easing='ease-in-sine'
-						data-aos-duration='250'
+						data-aos-duration='300'
 					>
 						<h6>
 							Software Developer at{' '}
@@ -76,7 +76,7 @@ const Experience: React.FC = () => {
 						className={label}
 						data-aos='fade-right'
 						data-aos-easing='ease-in-sine'
-						data-aos-duration='250'
+						data-aos-duration='300'
 					>
 						<h6>
 							Customer Support Technical Lead at{' '}
@@ -111,7 +111,7 @@ const Experience: React.FC = () => {
 						className={label}
 						data-aos='fade-left'
 						data-aos-easing='ease-in-sine'
-						data-aos-duration='250'
+						data-aos-duration='300'
 					>
 						<h6>
 							Client Experience / Operations Associate at{' '}
@@ -137,7 +137,7 @@ const Experience: React.FC = () => {
 							accounts.
 						</p>
 						<p>
-							Out of a team that scaled from 20 to over 250 agents, I routinely
+							Out of a team that scaled from 20 to over 300 agents, I routinely
 							led the CX team by total ticket solves, while retaining a 98%
 							positive rating on tickets with client ratings.
 						</p>
@@ -151,7 +151,7 @@ const Experience: React.FC = () => {
 						className={label}
 						data-aos='fade-up'
 						data-aos-easing='ease-in-sine'
-						data-aos-duration='250'
+						data-aos-duration='300'
 					>
 						<h6>
 							Purchasing Specialist at{' '}
@@ -182,7 +182,7 @@ const Experience: React.FC = () => {
 						className={label}
 						data-aos='fade-left'
 						data-aos-easing='ease-in-sine'
-						data-aos-duration='250'
+						data-aos-duration='300'
 					>
 						<h6>
 							Editor / Audio Engineer at{' '}
@@ -211,7 +211,7 @@ const Experience: React.FC = () => {
 						className={label}
 						data-aos='fade-left'
 						data-aos-easing='ease-in-sine'
-						data-aos-duration='250'
+						data-aos-duration='300'
 					>
 						<h6>
 							Studio Assistant at{' '}

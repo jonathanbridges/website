@@ -33,7 +33,7 @@ const About: React.FC<Props> = ({ sections, handleClick }) => (
 			and NextJS.
 		</p>
 		<p>
-			Other technologies I use every day include Javascript, SASS, CSS3,
+			Other technologies I use every day include Javascript, Sass, CSS3,
 			Bootstrap, Java, and MySQL. I have previous experience with Ruby, Rails,
 			PostgreSQL, MongoDB, Express, and Node. You can view some of my past
 			projects{' '}

@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Nav, Form } from 'react-bootstrap';
 import axios from 'axios';
 import { DarkModeContext } from '../../utilites/ThemeProvider';
 import SectionHeader from '../SectionHeader/SectionHeader';
+import localStyles from './Contact.module.scss';
 
 /**
  * Local state shared by the handleSubmit and handleServerResponse functions
@@ -14,7 +15,8 @@ type FormStatus = {
 
 const Contact: React.FC = () => {
 	const theme = useContext(DarkModeContext);
-	const { isDark } = theme.mode;
+	const { color, isDark } = theme.mode;
+	const { image, invert } = localStyles;
 
 	const [status, setStatus] = useState<FormStatus>({ ok: false, message: '' });
 	const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -61,6 +63,8 @@ const Contact: React.FC = () => {
 		}
 	};
 
+	const btnColor = isDark ? 'outline-light' : 'outline-dark';
+
 	return (
 		<>
 			<SectionHeader
@@ -85,7 +89,7 @@ const Contact: React.FC = () => {
 						/>
 					</Form.Group>
 					<div className='d-md-flex justify-content-between'>
-						<Form.Group controlId='name' className='flex-fill mr-sm-3'>
+						<Form.Group controlId='name' className='flex-fill mr-md-3'>
 							<Form.Label>Name</Form.Label>
 							<Form.Control
 								type='text'
@@ -106,7 +110,7 @@ const Contact: React.FC = () => {
 							/>
 						</Form.Group>
 					</div>
-					<Form.Group controlId='message'>
+					<Form.Group className='d-flex flex-column' controlId='message'>
 						<Form.Label>Message</Form.Label>
 						<Form.Control
 							as='textarea'
@@ -116,11 +120,23 @@ const Contact: React.FC = () => {
 							required
 							disabled={isSubmitting}
 						/>
+						{status.message && (
+							<Form.Text
+								className={
+									!status.ok
+										? 'align-self-center text-danger mt-3'
+										: 'align-self-center mt-3'
+								}
+							>
+								{status.message}
+							</Form.Text>
+						)}
 					</Form.Group>
-					{status && (
-						<p className={!status.ok ? 'text-danger' : ''}>{status.message}</p>
-					)}
-					<Form.Group className='d-flex align-end justify-content-center flex-fill'>
+					<Form.Group
+						className={`d-flex align-end justify-content-center flex-fill mb-2 ${
+							!status.message ? 'mt-4' : ''
+						}`}
+					>
 						<Button
 							variant={isDark ? 'outline-light' : 'outline-dark'}
 							type='submit'
@@ -129,15 +145,26 @@ const Contact: React.FC = () => {
 							Send Message
 						</Button>
 					</Form.Group>
+					<Form.Group className='d-flex align-items-center justify-content-center'>
+						<Nav.Link
+							className={`${btnColor} ${color} ${isDark ? invert : ''} px-2`}
+							as='a'
+							href='mailto: jbridges7@gmail.com'
+						>
+							jbridges7@gmail.com
+						</Nav.Link>
+						<Nav.Link
+							className={`${btnColor} ${color} ${isDark ? invert : ''} px-2`}
+							as='a'
+							href='tel: 707.604.8552'
+						>
+							707.604.8552
+						</Nav.Link>
+					</Form.Group>
 				</Form>
 				<div
-					style={{
-						backgroundImage: 'url(images/about.jpg)',
-						backgroundRepeat: 'no-repeat',
-						backgroundSize: 'cover',
-						backgroundPosition: 'center center'
-					}}
-					className='w-50 rounded shadow-sm'
+					style={{ backgroundImage: 'url(images/about.jpg)' }}
+					className={image}
 				/>
 			</div>
 		</>

@@ -28,7 +28,7 @@ section {
 	}
 	p {
 		margin-bottom: 2rem;
-		font-size: $font-size-sm;
+		font-size: $font-size-base;
 		&:last-child {
 			margin-bottom: 0;
 		}
@@ -53,6 +53,11 @@ h6 {
 	font-family: 'Playfair Display', Georgia, serif;
 	font-weight: 700;
 	margin-bottom: 0;
+}
+
+input:-moz-ui-invalid, textarea:-moz-ui-invalid {
+	border-color: $danger;
+	box-shadow: 0 0 0 0.2rem rgba($danger, 0.25);
 }
 
 /**
@@ -131,6 +136,11 @@ h6 {
 
 .tooltip {
 	font-family: 'Lato', 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+.form-control:focus {
+	border-color: $dark;
+	box-shadow: 0 0 0 0.2rem rgba($dark, 0.25);
 }
 
 /**
