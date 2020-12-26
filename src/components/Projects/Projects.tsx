@@ -7,7 +7,7 @@ import SectionHeader from '../SectionHeader/SectionHeader';
 
 const Projects: React.FC = () => {
 	const theme = useContext(DarkModeContext);
-	const { isDark } = theme.mode;
+	const { isDark } = theme.mode || {};
 	const { grid, project, description, button, light, dark } = localStyles;
 
 	/**
@@ -57,7 +57,7 @@ const Projects: React.FC = () => {
 	return (
 		<>
 			<SectionHeader spanText='My Work' headerText='Past Projects' />
-			<div className={grid}>
+			<div className={grid} data-testid='projects'>
 				<div data-aos='fade-right'>
 					<div
 						className={project}

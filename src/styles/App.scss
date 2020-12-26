@@ -16,6 +16,10 @@ section {
 	}
 }
 
+main {
+	overflow-x: hidden;
+}
+
 section {
 	display: flex !important;
 	flex-direction: column;
@@ -55,7 +59,8 @@ h6 {
 	margin-bottom: 0;
 }
 
-input:-moz-ui-invalid, textarea:-moz-ui-invalid {
+input:-moz-ui-invalid,
+textarea:-moz-ui-invalid {
 	border-color: $danger;
 	box-shadow: 0 0 0 0.2rem rgba($danger, 0.25);
 }

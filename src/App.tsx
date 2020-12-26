@@ -15,7 +15,7 @@ import Mondrian from './components/Mondrian/Mondrian';
 
 const App: React.FC = () => {
 	const theme = useContext(DarkModeContext);
-	const { color, background } = theme.mode;
+	const { color, background } = theme.mode || {};
 
 	/**
 	 * Initialize the AOS library @link http://michalsnik.github.io/aos/
@@ -43,7 +43,9 @@ const App: React.FC = () => {
 	/**
 	 * Event handler for scrolling to sections after clicking a nav link
 	 */
-	const handleClick = (sectionReference: React.RefObject<HTMLDivElement>) => {
+	const handleClick = (
+		sectionReference: React.RefObject<HTMLDivElement>
+	): void => {
 		if (sectionReference && sectionReference.current) {
 			sectionReference.current.scrollIntoView({
 				block: 'start',
@@ -57,7 +59,11 @@ const App: React.FC = () => {
 			<header>
 				<NavbarExtended sections={sections} handleClick={handleClick} />
 			</header>
-			<main className={`${background} ${color}`} ref={sections['Home']}>
+			<main
+				className={`${background} ${color}`}
+				ref={sections['Home']}
+				data-testid='main'
+			>
 				<Home />
 				<Container>
 					<section ref={sections['About']} data-aos='fade-left'>

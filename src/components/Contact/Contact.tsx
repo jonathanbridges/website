@@ -15,7 +15,7 @@ type FormStatus = {
 
 const Contact: React.FC = () => {
 	const theme = useContext(DarkModeContext);
-	const { color, isDark } = theme.mode;
+	const { color, isDark } = theme.mode || {};
 	const { image, invert } = localStyles;
 
 	const [status, setStatus] = useState<FormStatus>({ ok: false, message: '' });
@@ -27,7 +27,7 @@ const Contact: React.FC = () => {
 	 *
 	 * @param event The form submit event
 	 */
-	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
 		event.preventDefault();
 		const form = event.target as HTMLFormElement;
 		setIsSubmitting(true);
@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
 		}
 	};
 
-	const btnColor = isDark ? 'outline-light' : 'outline-dark';
+	const btnColor: string = isDark ? 'outline-light' : 'outline-dark';
 
 	return (
 		<>
@@ -72,7 +72,7 @@ const Contact: React.FC = () => {
 				headerText='Contact'
 				useHeaderAnimation
 			/>
-			<div className='d-sm-flex'>
+			<div className='d-sm-flex' data-testid='contact'>
 				<Form
 					onSubmit={handleSubmit}
 					className='flex-fill mr-sm-3'

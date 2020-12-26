@@ -19,7 +19,7 @@ interface Props extends NavbarProps {
 
 const NavbarExtended: React.FC<Props> = ({ sections, handleClick }) => {
 	const theme = useContext(DarkModeContext);
-	const { isDark } = theme.mode;
+	const { isDark } = theme.mode || {};
 	const [active, setActive] = useState<string>('');
 
 	const {
@@ -35,7 +35,7 @@ const NavbarExtended: React.FC<Props> = ({ sections, handleClick }) => {
 
 	const variant = isDark ? 'dark' : 'light';
 
-	const setTheme = (darkMode: DarkModeContext) => {
+	const setTheme = (darkMode: DarkModeContext): void => {
 		const isDark = darkMode.mode.isDark;
 		darkMode.dispatch(!isDark);
 	};
@@ -74,6 +74,7 @@ const NavbarExtended: React.FC<Props> = ({ sections, handleClick }) => {
 						setActive('Home');
 					}}
 					className={brand}
+					data-testid='navbar'
 				>
 					Jonathan Bridges
 				</Navbar.Brand>

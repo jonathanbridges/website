@@ -28,7 +28,7 @@ import SectionHeader from '../SectionHeader/SectionHeader';
 
 const Skills: React.FC = () => {
 	const theme = useContext(DarkModeContext);
-	const { isDark } = theme.mode;
+	const { isDark } = theme.mode || {};
 	const { grid, inverted, svg } = localStyles;
 	const animatedSvgClassname = isDark
 		? `${inverted} transition`
@@ -101,6 +101,7 @@ const Skills: React.FC = () => {
 		iconTitle: string
 	): React.ReactElement => (
 		<OverlayTrigger
+			key={iconTitle}
 			placement='top'
 			overlay={<Tooltip id='title'>{iconTitle}</Tooltip>}
 		>
@@ -121,7 +122,12 @@ const Skills: React.FC = () => {
 				headerText='My Skills'
 				useHeaderAnimation
 			/>
-			<div data-aos='flip-down' data-aos-duration='500' className={grid}>
+			<div
+				data-aos='flip-down'
+				data-aos-duration='500'
+				className={grid}
+				data-testid='skills'
+			>
 				{renderIcons()}
 			</div>
 		</>

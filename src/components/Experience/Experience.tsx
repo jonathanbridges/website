@@ -16,7 +16,7 @@ const Experience: React.FC = () => {
 				headerText={'Work Experience'}
 				useHeaderAnimation
 			/>
-			<div className={wrapper}>
+			<div className={wrapper} data-testid='experience'>
 				<article className={article}>
 					<div className={`${icon} bg-custom-khoros`}>
 						<CodeIcon />

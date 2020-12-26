@@ -16,7 +16,7 @@ interface Props {
 const About: React.FC<Props> = ({ sections, handleClick }) => (
 	<>
 		<SectionHeader spanText='About Me' headerText='Who Am I?' />
-		<p>
+		<p data-testid='about'>
 			<strong>I'm a software developer</strong> at{' '}
 			<a
 				href='https://khoros.com/'

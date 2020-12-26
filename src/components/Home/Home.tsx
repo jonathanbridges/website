@@ -5,11 +5,11 @@ import { DarkModeContext } from '../../utilites/ThemeProvider';
 
 const Home: React.FC = () => {
 	const theme = useContext(DarkModeContext);
-	const { background, color, isDark } = theme.mode;
+	const { background, color, isDark } = theme.mode || {};
 	const { h1, carousel } = localStyles;
 
 	return (
-		<Jumbotron fluid className={background}>
+		<Jumbotron fluid className={background} data-testid='home'>
 			<Carousel
 				pause={false}
 				fade

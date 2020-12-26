@@ -44,10 +44,19 @@ const Mondrian: React.FC = () => {
 
 	return (
 		<>
-			<Button onClick={toggleShowModal} className={button}>
+			<Button
+				onClick={toggleShowModal}
+				className={button}
+				data-testid='mondrian-btn'
+			>
 				What are you looking here for anyways?
 			</Button>
-			<Modal centered show={showModal} onHide={toggleShowModal}>
+			<Modal
+				centered
+				show={showModal}
+				onHide={toggleShowModal}
+				data-testid='mondrian'
+			>
 				<OverlayTrigger
 					placement='top'
 					overlay={
