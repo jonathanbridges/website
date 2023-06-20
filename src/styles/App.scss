@@ -65,6 +65,10 @@ textarea:-moz-ui-invalid {
 	box-shadow: 0 0 0 0.2rem rgba($danger, 0.25);
 }
 
+iframe {
+	pointer-events: none;
+}
+
 /**
  * Bootstrap customizations
  */
