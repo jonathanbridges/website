@@ -10,11 +10,7 @@ const Home: React.FC = () => {
 
   return (
     <Jumbotron fluid className={background} data-testid="home">
-      <Carousel
-        pause={false}
-        fade
-        className={isDark ? "" : `${carousel} transition`}
-      >
+      <Carousel pause={false} fade className={isDark ? "" : carousel}>
         <Carousel.Item interval={2000}>
           <Carousel.Caption className={color}>
             <h1 className={h1}>Hi!</h1>

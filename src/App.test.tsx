@@ -1,79 +1,67 @@
-import React from 'react';
-import {
-	fireEvent,
-	render,
-	screen,
-	waitForElementToBeRemoved,
-	waitForElement
-} from '@testing-library/react';
+import React from "react";
+import { fireEvent, render, screen, wait } from "@testing-library/react";
 
-import App from './App';
+import App from "./App";
 
-describe('portfolio app', (): void => {
-	it('renders the navbar', (): void => {
-		const { getByTestId } = render(<App />);
+describe("portfolio app", (): void => {
+  it("renders the navbar", async (): Promise<void> => {
+    render(<App />);
 
-		const navbarBrand: HTMLElement = getByTestId('navbar');
-		expect(navbarBrand).toBeInTheDocument();
-	});
-	it('renders the jumbotron', (): void => {
-		const { getByTestId } = render(<App />);
+    const navbarBrand: HTMLElement = await screen.findByTestId("navbar");
+    expect(navbarBrand).toBeInTheDocument();
+  });
+  it("renders the jumbotron", async (): Promise<void> => {
+    render(<App />);
 
-		const jumbotron: HTMLElement = getByTestId('home');
-		expect(jumbotron).toBeInTheDocument();
-	});
-	it('renders the about section', (): void => {
-		const { getByTestId } = render(<App />);
+    const jumbotron: HTMLElement = await screen.findByTestId("home");
+    expect(jumbotron).toBeInTheDocument();
+  });
+  it("renders the about section", async (): Promise<void> => {
+    render(<App />);
 
-		const about: HTMLElement = getByTestId('about');
-		expect(about).toBeInTheDocument();
-	});
-	it('renders the skills section', (): void => {
-		const { getByTestId } = render(<App />);
+    const about: HTMLElement = await screen.findByTestId("about");
+    expect(about).toBeInTheDocument();
+  });
+  it("renders the skills section", async (): Promise<void> => {
+    render(<App />);
 
-		const skills: HTMLElement = getByTestId('skills');
-		expect(skills).toBeInTheDocument();
-	});
-	it('renders the experience section', (): void => {
-		const { getByTestId } = render(<App />);
+    const skills: HTMLElement = await screen.findByTestId("skills");
+    expect(skills).toBeInTheDocument();
+  });
+  it("renders the experience section", async (): Promise<void> => {
+    render(<App />);
 
-		const experience: HTMLElement = getByTestId('experience');
-		expect(experience).toBeInTheDocument();
-	});
-	it('renders the projects section', (): void => {
-		const { getByTestId } = render(<App />);
+    const experience: HTMLElement = await screen.findByTestId("experience");
+    expect(experience).toBeInTheDocument();
+  });
+  it("renders the contact section", async (): Promise<void> => {
+    render(<App />);
 
-		const projects: HTMLElement = getByTestId('projects');
-		expect(projects).toBeInTheDocument();
-	});
-	it('renders the contact section', (): void => {
-		const { getByTestId } = render(<App />);
+    const contact: HTMLElement = await screen.findByTestId("contact");
+    expect(contact).toBeInTheDocument();
+  });
+  it("launches the modal", async (): Promise<void> => {
+    render(<App />);
 
-		const contact: HTMLElement = getByTestId('contact');
-		expect(contact).toBeInTheDocument();
-	});
-	it('launches the modal', (): void => {
-		const { getByTestId } = render(<App />);
-
-		const btn: HTMLElement = getByTestId('mondrian-btn');
-		fireEvent.click(btn);
-		const modal: HTMLElement = getByTestId('mondrian');
-		expect(modal).toBeInTheDocument();
-	});
-	it('hides the modal', async (): Promise<void> => {
-		const { getByTestId } = render(<App />);
-		const btn: HTMLElement = getByTestId('mondrian-btn');
-		fireEvent.click(btn);
-		const modal: HTMLElement = getByTestId('mondrian');
-		await waitForElement(() => screen.getByTestId('mondrian'));
-		expect(modal).toBeInTheDocument();
-		fireEvent.keyDown(modal, {
-			key: 'Escape',
-			code: 'Escape',
-			keyCode: 27,
-			charCode: 27
-		});
-		await waitForElementToBeRemoved(() => screen.getByTestId('mondrian'));
-		expect(modal).not.toBeInTheDocument();
-	});
+    const btn: HTMLElement = await screen.findByTestId("mondrian-btn");
+    fireEvent.click(btn);
+    const modal: HTMLElement = await screen.findByTestId("mondrian");
+    expect(modal).toBeInTheDocument();
+  });
+  it("hides the modal", async (): Promise<void> => {
+    render(<App />);
+    const btn: HTMLElement = await screen.findByTestId("mondrian-btn");
+    fireEvent.click(btn);
+    const modal: HTMLElement = await screen.findByTestId("mondrian");
+    expect(modal).toBeInTheDocument();
+    fireEvent.keyDown(modal, {
+      key: "Escape",
+      code: "Escape",
+      keyCode: 27,
+      charCode: 27,
+    });
+    await wait(() => {
+      expect(screen.queryByTestId).not.toBeInTheDocument();
+    });
+  });
 });

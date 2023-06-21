@@ -35,6 +35,7 @@ interface DarkModeContext {
 const darkModeReducer = (_reducer: any, isDark: boolean) =>
   isDark ? DARK_THEME : LIGHT_THEME;
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 const DarkModeContext: Context<DarkModeContext> = createContext(
   {} as DarkModeContext
 );
@@ -42,7 +43,7 @@ const DarkModeContext: Context<DarkModeContext> = createContext(
 const initialState =
   JSON.parse(localStorage.getItem("DarkMode") as string) || LIGHT_THEME;
 
-const DarkModeProvider: React.FC = ({ children }) => {
+const DarkModeProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [mode, dispatch] = useReducer(darkModeReducer, initialState);
 
   useEffect(() => {

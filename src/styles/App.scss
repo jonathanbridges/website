@@ -65,10 +65,6 @@ textarea:-moz-ui-invalid {
 	box-shadow: 0 0 0 0.2rem rgba($danger, 0.25);
 }
 
-iframe {
-	pointer-events: none;
-}
-
 /**
  * Bootstrap customizations
  */
@@ -130,6 +126,10 @@ iframe {
 
 .carousel {
 	width: 100vw;
+	/* BS application of transform: none breaking their own animation in BS v4, so overriding */
+	&-fade.carousel-fade .carousel-item {
+		transition: opacity 0.6s cubic-bezier(0.6, -0.28, 0.74, 0.05) !important;
+	}
 	&-item {
 		height: $jumbotron-height;
 	}
