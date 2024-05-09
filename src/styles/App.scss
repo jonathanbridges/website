@@ -11,6 +11,7 @@ body {
 main,
 section {
 	scroll-margin: $navbar-height 0 0 0;
+
 	@include media-breakpoint-down(md) {
 		scroll-margin: $navbar-height-collapsed 0 0 0;
 	}
@@ -26,13 +27,16 @@ section {
 	justify-content: center;
 	min-height: calc(#{$jumbotron-height} - #{$navbar-height});
 	padding-bottom: $navbar-height;
+
 	@include media-breakpoint-down(md) {
 		min-height: calc(#{$jumbotron-height} - #{$navbar-height-collapsed});
 		padding-bottom: $navbar-height-collapsed;
 	}
+
 	p {
 		margin-bottom: 2rem;
 		font-size: $font-size-base;
+
 		&:last-child {
 			margin-bottom: 0;
 		}
@@ -73,8 +77,10 @@ textarea:-moz-ui-invalid {
 		font-size: 0.825rem;
 		text-transform: uppercase;
 	}
+
 	&-toggler {
 		padding: 0;
+
 		&-icon {
 			display: inline-block;
 			width: 1.25rem;
@@ -85,9 +91,11 @@ textarea:-moz-ui-invalid {
 
 .nav-link {
 	position: relative;
+
 	@include media-breakpoint-down(md) {
 		width: fit-content;
 	}
+
 	&:after {
 		content: '';
 		position: absolute;
@@ -95,15 +103,18 @@ textarea:-moz-ui-invalid {
 		bottom: 0.5rem;
 		left: 0.5rem;
 		right: 0.5rem;
+
 		@include media-breakpoint-down(md) {
 			left: 0;
 			right: 0;
 		}
+
 		background-color: $dark;
 		visibility: hidden;
 		transform: scaleX(0);
 		transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	}
+
 	&:hover:after,
 	&:focus:after {
 		visibility: visible;
@@ -126,13 +137,16 @@ textarea:-moz-ui-invalid {
 
 .carousel {
 	width: 100vw;
+
 	/* BS application of transform: none breaking their own animation in BS v4, so overriding */
 	&-fade.carousel-fade .carousel-item {
 		transition: opacity 0.6s cubic-bezier(0.6, -0.28, 0.74, 0.05) !important;
 	}
+
 	&-item {
 		height: $jumbotron-height;
 	}
+
 	&-caption {
 		display: flex;
 		align-items: center;

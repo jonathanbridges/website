@@ -1,7 +1,10 @@
 @import '../../styles/variables.scss';
 
 .wrapper {
+	display: flex;
+	flex-direction: column;
 	position: relative;
+
 	&:before {
 		content: '';
 		display: flex;
@@ -17,6 +20,7 @@
 .article {
 	display: flex;
 	flex-wrap: none;
+
 	&:not(:last-child) {
 		margin-bottom: 2rem;
 	}
@@ -34,23 +38,28 @@
 	background-color: #e8e9ec;
 	color: $dark;
 	border-radius: $border-radius;
-	> h6 {
+
+	h6 {
 		font-size: 1.25rem;
 		margin-bottom: 0;
 		max-width: 75%;
 	}
-	> span {
+
+	span {
 		margin-left: auto;
 		font-family: 'Playfair Display', Georgia, serif;
 		font-size: 18px;
 		color: $text-muted;
 	}
-	> p:first-of-type {
+
+	p:first-of-type {
 		margin-top: 1rem;
 	}
-	> p:not(:last-child) {
+
+	p:not(:last-child) {
 		margin-bottom: 1rem;
 	}
+
 	&:before {
 		content: '';
 		display: block;
@@ -74,15 +83,19 @@
 	height: 3rem;
 	z-index: 5;
 	border-radius: 50%;
+
 	&:not(:last-child) {
 		box-shadow: 0 0 0 0.3rem #e8e9ec;
 	}
+
 	&:last-child {
 		max-width: 2.5rem;
-		border: 0.3rem solid  #e8e9ec;
+		border: 0.3rem solid #e8e9ec;
 	}
-	> svg {
+
+	>svg {
 		height: 50%;
+
 		path {
 			fill: $light;
 		}
