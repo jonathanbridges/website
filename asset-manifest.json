@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.87ad857f.css",
-    "main.js": "/static/js/main.e685cc23.js",
+    "main.css": "/static/css/main.86eeceff.css",
+    "main.js": "/static/js/main.58a56a02.js",
     "static/media/postgresql-plain.svg": "/static/media/postgresql-plain.5643cbe028db93b5eda32cace7ff7daf.svg",
     "static/media/sass-original.svg": "/static/media/sass-original.8ec1693844d3eb12c43fa282269f4cb0.svg",
     "static/media/support.svg": "/static/media/support.b63a726ba663740095fb8673fd0f40e7.svg",
@@ -33,11 +33,11 @@
     "static/media/html5-plain.svg": "/static/media/html5-plain.bf6bb1c230f673b1a40c700677243b83.svg",
     "static/media/heroku-plain.svg": "/static/media/heroku-plain.a168126487e016708c9a8e14165d7ca7.svg",
     "static/media/linkedin.svg": "/static/media/linkedin.27a3f479ca1bbb0ceef19e395081fb94.svg",
-    "main.87ad857f.css.map": "/static/css/main.87ad857f.css.map",
-    "main.e685cc23.js.map": "/static/js/main.e685cc23.js.map"
+    "main.86eeceff.css.map": "/static/css/main.86eeceff.css.map",
+    "main.58a56a02.js.map": "/static/js/main.58a56a02.js.map"
   },
   "entrypoints": [
-    "static/css/main.87ad857f.css",
-    "static/js/main.e685cc23.js"
+    "static/css/main.86eeceff.css",
+    "static/js/main.58a56a02.js"
   ]
 }
