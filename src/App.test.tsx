@@ -1,5 +1,6 @@
 import React from "react";
-import { fireEvent, render, screen, wait } from "@testing-library/react";
+import '@testing-library/jest-dom';
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 import App from "./App";
 
@@ -60,7 +61,7 @@ describe("portfolio app", (): void => {
       keyCode: 27,
       charCode: 27,
     });
-    await wait(() => {
+    await waitFor(() => {
       expect(screen.queryByTestId).not.toBeInTheDocument();
     });
   });

@@ -47,8 +47,8 @@ const Experience: React.FC = () => {
             },
           ]}
           paragraphs={[
-            "At Khoros I was progressivly promoted in the software engineering department for exceeding expectations annually. I started out as an individual contributor working primarily on the frontend Community application after being hired for my knowledge of React and CSS, but took on more and more responsibility as I gained more experience.",
-            "As a developer, I became increasingly pivotal across the department by devising generic, reusable, and scalable solutions to complex problems, including the frontend architecture for Khoros page builder, a WYSIWYG editor for the Khoros platform. This editor allows users to create and edit pages in a visual, drag-and-drop interface, with support for theming, and a variety of page templates.",
+            "At Khoros I was progressively promoted in the software engineering department for exceeding expectations annually. I started as an individual contributor working primarily on the frontend Community application after being hired for my knowledge of React and CSS but took on more and more responsibility as I gained more experience.",
+            "As a developer, I became increasingly pivotal across the department by devising generic, reusable, and scalable solutions to complex problems, including the frontend architecture for the Khoros page builder, and a WYSIWYG editor for the Khoros platform. This editor allows users to create and edit pages in a visual, drag-and-drop interface, with support for theming, and a variety of page templates.",
             "Most recently, I expanded my role to include work on the Java backend, where I streamlined error responses from disparate API endpoints. Other projects I undertook include significant refactoring of Jest unit test suites, which increased continuous integration (CI) speeds by over 50%; enhancing platform accessibility by utilizing Storybook to integrate and test accessibility features effectively.",
             "As a collaborator, I trained new hires on best practices and design patterns, authored documentation for the codebase, and increasingly became a go-to resource supporting junior developers across our globally located teams.",
           ]}
@@ -91,7 +91,7 @@ const Experience: React.FC = () => {
           ]}
           paragraphs={[
             "I supported our clients with web, mobile, and live event implementations of our application, boosting my knowledge of languages like CSS and SQL, among a myriad of other technical skills. I worked with Engineering closely, attending standups and meetings, reporting and tracking bugs in PivotalTracker, creating and running QA Tests, and authoring API documentation.",
-            "In addition, I had full autonomy over client experience at TINT. I managed a conversion to Zendesk and implemented live chat, greatly reducing our response time and contact rate during the process.",
+            "In addition, I had full autonomy over client experience at TINT. I managed conversion to Zendesk and implemented live chat, greatly reducing our response time and contact rate during the process.",
           ]}
         />
         <Job
@@ -111,7 +111,7 @@ const Experience: React.FC = () => {
             },
           ]}
           paragraphs={[
-            "At Stitch Fix I wholly embraced a customer centric mindset, and made several improvements to CX processes on the operational level. I implemented a priority ticket structure in Zendesk, wrote Marketing approved copy for help desk replies, and trained new hires in Austin headquarters.",
+            "At Stitch Fix, I wholly embraced a customer-centric mindset and made several improvements to CX processes on the operational level. I implemented a priority ticket structure in Zendesk, wrote Marketing copy for help desk replies, and trained new hires in Austin headquarters.",
             "Other operational tasks involved disputing chargebacks, processing truant shipments, analyzing billing discrepancies, and reconciling accounts.",
             "Out of a team that scaled from 20 to over 300 agents, I routinely led the CX team by total ticket solves, while retaining a 98% positive rating on tickets with client ratings.",
           ]}
