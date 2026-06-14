@@ -1,0 +1,13 @@
+packages:
+  - "."
+  - "worker"
+
+allowBuilds:
+  esbuild: true
+  sharp: true
+  workerd: true
+
+autoInstallPeers: true
+
+minimumReleaseAgeExclude:
+  - eslint-plugin-react-refresh@0.5.3

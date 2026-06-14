@@ -1,86 +1,67 @@
-import React, { createRef, useContext, useEffect } from "react";
-import AOS from "aos";
-import "./styles/App.scss";
-import "aos/dist/aos.css";
-import { Container } from "react-bootstrap";
-import { DarkModeContext } from "./utilites/ThemeProvider";
-import NavbarExtended from "./components/Navbar/Navbar";
-import Home from "./components/Home/Home";
-import About from "./components/About/About";
-import Skills from "./components/Skills/Skills";
-import Experience from "./components/Experience/Experience";
-import Contact from "./components/Contact/Contact";
-import Mondrian from "./components/Mondrian/Mondrian";
+import { useCallback, useEffect, useState } from "react";
+import { ChatWidget } from "@/components/ai/ChatWidget";
+import { Footer } from "@/components/Layout/Footer";
+import { Header, SECTIONS } from "@/components/Layout/Header";
+import { ScrollProgress } from "@/components/Layout/ScrollProgress";
+import { About } from "@/components/sections/About";
+import { Contact } from "@/components/sections/Contact";
+import { Experience } from "@/components/sections/Experience";
+import { Hero } from "@/components/sections/Hero";
+import { Projects } from "@/components/sections/Projects";
+import { Skills } from "@/components/sections/Skills";
 
-const App: React.FC = () => {
-  const theme = useContext(DarkModeContext);
-  const { color, background } = theme.mode || {};
+function App() {
+  const [activeSection, setActiveSection] = useState("home");
 
-  /**
-   * Initialize the AOS library @link http://michalsnik.github.io/aos/
-   */
-  useEffect(() => {
-    AOS.init({
-      delay: 25,
-      duration: 500,
-      easing: "ease-in-sine",
-    });
+  const handleNavigate = useCallback((id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 
-  /**
-   * Section titles and refs used to render links and scroll to sections in the navbar.
-   */
-  const sections: Record<string, React.RefObject<HTMLDivElement>> = {
-    Home: createRef<HTMLDivElement>(),
-    About: createRef<HTMLDivElement>(),
-    Skills: createRef<HTMLDivElement>(),
-    Experience: createRef<HTMLDivElement>(),
-    Contact: createRef<HTMLDivElement>(),
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
-  /**
-   * Event handler for scrolling to sections after clicking a nav link
-   */
-  const handleClick = (
-    sectionReference: React.RefObject<HTMLDivElement>
-  ): void => {
-    if (sectionReference && sectionReference.current) {
-      sectionReference.current.scrollIntoView({
-        block: "start",
-        behavior: "smooth",
-      });
-    }
-  };
+        if (visible[0]?.target.id) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      { threshold: [0.25, 0.5, 0.75], rootMargin: "-80px 0px -40% 0px" }
+    );
+
+    SECTIONS.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
-      <header>
-        <NavbarExtended sections={sections} handleClick={handleClick} />
-      </header>
-      <main
-        className={`${background} ${color}`}
-        ref={sections["Home"]}
-        data-testid="main"
+      <a
+        href="#home"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[70] focus:bg-[var(--color-accent)] focus:px-4 focus:py-2 focus:text-[var(--color-bg)]"
       >
-        <Home />
-        <Container>
-          <section ref={sections["About"]} data-aos="fade-left">
-            <About />
-          </section>
-          <section ref={sections["Skills"]} data-aos="fade-right">
-            <Skills />
-          </section>
-          <section ref={sections["Experience"]}>
-            <Experience />
-          </section>
-          <section ref={sections["Contact"]}>
-            <Contact />
-          </section>
-          <Mondrian />
-        </Container>
+        Skip to content
+      </a>
+      <ScrollProgress />
+      <Header activeSection={activeSection} onNavigate={handleNavigate} />
+      <main className="snap-container pt-16">
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Contact />
+        <Footer />
       </main>
+      <ChatWidget />
     </>
   );
-};
+}
 
 export default App;

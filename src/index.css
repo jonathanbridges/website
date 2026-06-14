@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-display: "Instrument Serif", Georgia, serif;
+}
+
+:root,
+[data-theme="light"] {
+  --color-bg: #f5f5f0;
+  --color-bg-muted: #ebebe4;
+  --color-fg: #0a0a0a;
+  --color-fg-muted: #525252;
+  --color-accent: #c45c26;
+  --color-accent-hover: #a34a1c;
+  --color-border: #d4d4c8;
+  --color-header-bg: rgba(245, 245, 240, 0.9);
+  --icon-filter: none;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-heading: "Instrument Serif", Georgia, serif;
+}
+
+[data-theme="dark"] {
+  --color-bg: #0a0a0a;
+  --color-bg-muted: #171717;
+  --color-fg: #f5f5f0;
+  --color-fg-muted: #a3a3a3;
+  --color-accent: #e07a3a;
+  --color-accent-hover: #f09050;
+  --color-border: #262626;
+  --color-header-bg: rgba(10, 10, 10, 0.9);
+  --icon-filter: invert(1);
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-heading: "Instrument Serif", Georgia, serif;
+}
+
+[data-theme="geocities"] {
+  --color-bg: #000080;
+  --color-bg-muted: #0000aa;
+  --color-fg: #00ff00;
+  --color-fg-muted: #ffff00;
+  --color-accent: #ff00ff;
+  --color-accent-hover: #ff66ff;
+  --color-border: #ff0000;
+  --color-header-bg: rgba(0, 0, 128, 0.95);
+  --font-body: "Comic Sans MS", "Chalkboard SE", cursive, sans-serif;
+  --font-heading: "Times New Roman", Times, serif;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  [data-theme="geocities"] body {
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='10' height='10' fill='%23000080'/%3E%3Crect x='10' y='10' width='10' height='10' fill='%23000080'/%3E%3Crect x='10' width='10' height='10' fill='%230000aa'/%3E%3Crect y='10' width='10' height='10' fill='%230000aa'/%3E%3C/svg%3E");
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  [data-theme="geocities"] a {
+    color: #00ffff;
+    font-weight: bold;
+  }
+
+  [data-theme="geocities"] a:hover {
+    color: #ff00ff;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+}
+
+@layer utilities {
+  .text-display {
+    font-family: var(--font-heading);
+  }
+
+  .bg-surface {
+    background-color: var(--color-bg);
+  }
+
+  .bg-surface-muted {
+    background-color: var(--color-bg-muted);
+  }
+
+  .text-primary {
+    color: var(--color-fg);
+  }
+
+  .text-muted {
+    color: var(--color-fg-muted);
+  }
+
+  .border-theme {
+    border-color: var(--color-border);
+  }
+
+  .animate-in-view {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  .animate-in-view.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .marquee {
+    display: inline-block;
+    animation: marquee 8s linear infinite;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .snap-container {
+    scroll-snap-type: none !important;
+  }
+
+  .animate-in-view {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .blink,
+  .marquee {
+    animation: none;
+  }
+}
+
+.snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
