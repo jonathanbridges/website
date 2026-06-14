@@ -12,19 +12,26 @@ export interface ExperienceEntry {
 
 export const experience: ExperienceEntry[] = [
   {
+    company: "OlioApps",
+    url: "https://olioapps.com",
+    roles: [{ title: "Senior Software Engineer", date: "2025–Present" }],
+    paragraphs: [
+      "Founding engineer and consultant through OlioApps for Grace & Mercy, a New York City based non-profit. Bootstrapped Tabernacle from an empty repo into a production platform where faith communities organize groups, run recurring schedules, host live gatherings, stream video, and manage RSVPs and notifications.",
+      "Architected the TypeScript monorepo (Next.js, Express, PostgreSQL) on Google Cloud, from auth and membership workflows through media pipelines, multi-language support, CI/CD, and React Native mobile contributions.",
+    ],
+  },
+  {
     company: "Khoros",
     url: "https://khoros.com",
     roles: [
-      { title: "Senior Software Engineer", date: "2023–2024" },
-      { title: "Software Engineer III", date: "2022–2023" },
-      { title: "Software Engineer II", date: "2021–2022" },
-      { title: "Software Engineer I", date: "2020–2021" },
+      {
+        title: "Software Engineer I → Senior Software Engineer",
+        date: "2020–2024",
+      },
     ],
     paragraphs: [
-      "At Khoros I was progressively promoted in the software engineering department for exceeding expectations annually. I started as an individual contributor working primarily on the frontend Community application after being hired for my knowledge of React and CSS but took on more and more responsibility as I gained more experience.",
-      "As a developer, I became increasingly pivotal across the department by devising generic, reusable, and scalable solutions to complex problems, including the frontend architecture for the Khoros page builder, and a WYSIWYG editor for the Khoros platform.",
-      "Most recently, I expanded my role to include work on the Java backend, where I streamlined error responses from disparate API endpoints. Other projects include significant refactoring of Jest unit test suites, which increased CI speeds by over 50%.",
-      "As a collaborator, I trained new hires on best practices and design patterns, authored documentation for the codebase, and increasingly became a go-to resource supporting junior developers across our globally located teams.",
+      "Promoted annually from Community frontend contributor to Senior Software Engineer. Khoros was a major stepping stone in frontend design and architecture across React, Next.js, component systems, and complex product UI.",
+      "Led architecture for the community page builder, a drag-and-drop tool that let customers assemble branded sites without code, and an in-platform WYSIWYG editor for content authoring. Scope grew over time into full-stack integration, shared frontend patterns, engineering tooling, and mentoring on globally distributed teams.",
     ],
   },
   {
@@ -32,7 +39,7 @@ export const experience: ExperienceEntry[] = [
     url: "https://www.brandly.com",
     roles: [{ title: "Software Developer", date: "2019–2020" }],
     paragraphs: [
-      "As a freelance developer for Brandly, I worked on new features like pagination on admin order histories, bug fixes, and mobile design.",
+      "Freelance developer for Brandly, a custom merchandise platform. Shipped admin improvements such as paginated order histories, resolved production bugs, and tightened mobile layouts across the back-office experience.",
     ],
   },
   {
@@ -40,8 +47,8 @@ export const experience: ExperienceEntry[] = [
     url: "https://www.tintup.com",
     roles: [{ title: "Support Engineer", date: "2015–2018" }],
     paragraphs: [
-      "I supported our clients with web, mobile, and live event implementations of our application, boosting my knowledge of languages like CSS and SQL. I worked with Engineering closely, reporting and tracking bugs, creating and running QA tests, and authoring API documentation.",
-      "In addition, I had full autonomy over client experience at TINT. I managed conversion to Zendesk and implemented live chat, greatly reducing our response time and contact rate during the process.",
+      "Support engineer for TINT, a platform that helps brands collect and display user-generated content across web, mobile, and live events. Partnered with clients on implementations and with engineering on bug reports, QA, and API documentation.",
+      "Owned customer experience tooling on the support side as well, leading a migration to Zendesk and rolling out live chat to bring response times down.",
     ],
   },
   {
@@ -51,8 +58,7 @@ export const experience: ExperienceEntry[] = [
       { title: "Client Experience / Operations Associate", date: "2014–2015" },
     ],
     paragraphs: [
-      "At Stitch Fix, I wholly embraced a customer-centric mindset and made several improvements to CX processes on the operational level. I implemented a priority ticket structure in Zendesk, wrote Marketing copy for help desk replies, and trained new hires in Austin headquarters.",
-      "Out of a team that scaled from 20 to over 300 agents, I routinely led the CX team by total ticket solves, while retaining a 98% positive rating on tickets with client ratings.",
+      "Client experience associate at Stitch Fix while the support team grew from about 20 agents to more than 300. Shaped how tickets were prioritized in Zendesk, wrote help-desk copy, trained new hires, and regularly led the team in ticket volume with a 98% positive client rating.",
     ],
   },
   {
@@ -60,7 +66,7 @@ export const experience: ExperienceEntry[] = [
     url: "https://www.firstrepublic.com",
     roles: [{ title: "Purchasing Specialist", date: "2012–2013" }],
     paragraphs: [
-      "Working in First Republic's Purchasing Department, I ordered tangible assets for our corporate HQ and nationwide branches. I worked closely with our Facilities department, managing several vendors, and coordinating subcontractors.",
+      "Purchasing specialist for First Republic's corporate headquarters and branch network. Coordinated orders for physical assets, managed vendor relationships, and partnered with the Facilities team to keep offices supplied and running smoothly.",
     ],
   },
   {
@@ -68,7 +74,7 @@ export const experience: ExperienceEntry[] = [
     url: "https://digifx.com",
     roles: [{ title: "Editor / Audio Engineer", date: "2009–2010" }],
     paragraphs: [
-      "While at DigiFX I worked primarily on eLearning modules that were used as training materials in the nuclear industry. I proofed and revised scripts prior to recording sessions, recorded and edited audio, and performed voice overs.",
+      "Editor and audio engineer at DigiFX, producing eLearning and training content including modules for the nuclear industry. Responsibilities ranged from script revision before recording sessions to studio recording, audio editing, and voice-over delivery.",
     ],
   },
   {
@@ -76,7 +82,7 @@ export const experience: ExperienceEntry[] = [
     url: "http://soundtrackgroup.com/",
     roles: [{ title: "Studio Assistant", date: "2008–2009" }],
     paragraphs: [
-      "Soundtrack Boston is the premier post-production facility in New England. While there I worked as a studio assistant, and provided coverage for the duplication room, machine room, client services, and wherever else I was needed.",
+      "Studio assistant at Soundtrack Boston, one of New England's largest post-production facilities. Covered duplication, the machine room, client services, and other floor needs as they came up.",
     ],
   },
 ];

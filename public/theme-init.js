@@ -17,7 +17,7 @@
       }
     }
 
-    return "light";
+    return "dark";
   }
 
   document.documentElement.dataset.theme = resolveTheme();

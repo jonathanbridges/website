@@ -20,7 +20,7 @@ export function getStoredTheme(): Theme {
     }
   }
 
-  return "light";
+  return "dark";
 }
 
 export function applyTheme(theme: Theme): void {

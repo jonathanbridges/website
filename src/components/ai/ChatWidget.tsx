@@ -132,7 +132,7 @@ export function ChatWidget() {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask a question…"
               disabled={loading}
-              className="flex-1 bg-transparent px-4 py-3 text-sm text-primary placeholder:text-muted focus:outline-none"
+              className="flex-1 bg-transparent px-4 py-3 text-sm text-primary focus:outline-none"
               aria-label="Chat message"
             />
             <button

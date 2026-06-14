@@ -1,4 +1,5 @@
 import { profile } from "@/content";
+import { eyebrowMuted, eyebrowPrimary } from "@/constants/typography";
 import { Section } from "@/components/Layout/Section";
 
 const fullNameParts = profile.name.split(" ");
@@ -6,9 +7,9 @@ const shortNameParts = profile.shortName.split(" ");
 
 export function Hero() {
   return (
-    <Section id="home" label="Index" tone="base">
+    <Section id="home" tone="base">
       <div className="flex w-full flex-col items-center gap-6 md:gap-8">
-        <p className="text-eyebrow tracking-[0.5em]">
+        <p className={`${eyebrowMuted} tracking-[0.5em]`}>
           {profile.location}
         </p>
         <h1 className="text-block flex flex-col items-center text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8.5rem]">
@@ -28,21 +29,21 @@ export function Hero() {
             <span key={word}>{word}</span>
           ))}
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-4 pt-6">
+        <div className="flex flex-wrap items-baseline justify-center gap-x-4 gap-y-2 pt-6">
           <a
             href={profile.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-eyebrow cursor-pointer tracking-[0.35em] text-primary underline underline-offset-4 transition-opacity hover:opacity-60"
+            className={`${eyebrowPrimary} inline-block cursor-pointer border-b border-current pb-0.5 tracking-[0.35em] transition-opacity hover:opacity-60`}
           >
             Resume
           </a>
-          <span className="text-muted" aria-hidden>
+          <span className="text-muted select-none" aria-hidden>
             ·
           </span>
           <a
             href="#about"
-            className="text-eyebrow cursor-pointer tracking-[0.35em] transition-colors hover:text-primary"
+            className={`${eyebrowMuted} inline-block cursor-pointer tracking-[0.35em] transition-colors hover:text-primary`}
           >
             Scroll
           </a>

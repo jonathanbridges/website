@@ -1,3 +1,8 @@
+export type AboutSegment = {
+  text: string;
+  emphasis?: boolean;
+};
+
 export const profile = {
   name: "Jonathan Bridges",
   shortName: "Jon Bridges",
@@ -6,12 +11,56 @@ export const profile = {
   resumeUrl:
     "https://docs.google.com/document/d/12wndBuWVkX4Hc6_BYDKZFoEdm8er5dSFmWjG1LzIlU0",
   pullQuote: "Building software you're proud to share.",
-  blurb: [
-    "Jonathan Bridges is a software developer based in San Francisco with a passion for lifelong learning, problem-solving, and building products people are proud to share.",
-    "He has extensive experience across the frontend — React, TypeScript, Apollo GraphQL, Next.js, and CSS — and contributes on the backend with Java, MySQL, Ruby, Rails, and PostgreSQL.",
-    "At Khoros he progressed from Software Engineer I to Senior Software Engineer, leading frontend architecture for page builder and WYSIWYG systems, streamlining Java API error handling, and cutting CI times by over 50%.",
-    "His career also spans client-facing roles at TINT and Stitch Fix, giving him a rare mix of engineering depth and customer empathy. Outside of work he cycles the hills of San Francisco, plays several instruments, and travels often — raised in Vermont, where he learned to love being outdoors as much as being online.",
-  ],
+  aboutBlurb: [
+    [
+      { text: "Jonathan Bridges", emphasis: true },
+      {
+        text: " is a full-stack software engineer in San Francisco who builds products from the ground up: monorepos, APIs, design systems, cloud infrastructure, and the tooling teams need to ship with confidence.",
+      },
+    ],
+    [
+      { text: "His stack centers on ", emphasis: false },
+      { text: "TypeScript", emphasis: true },
+      { text: ", " },
+      { text: "React", emphasis: true },
+      { text: ", " },
+      { text: "Next.js", emphasis: true },
+      { text: ", and " },
+      { text: "Node.js", emphasis: true },
+      {
+        text: ", with growing depth in ",
+      },
+      { text: "Google Cloud", emphasis: true },
+      { text: ", " },
+      { text: "Terraform", emphasis: true },
+      { text: ", " },
+      { text: "Docker", emphasis: true },
+      {
+        text: ", and media pipelines. He integrates ",
+      },
+      { text: "AI-assisted development", emphasis: true },
+      {
+        text: " into real workflows, with an eye toward maintainable codebases, clear UX, and software that holds up as products and teams grow.",
+      },
+    ],
+    [
+      { text: "At ", emphasis: false },
+      { text: "OlioApps", emphasis: true },
+      {
+        text: ", he builds platforms for faith-based organizations. At ",
+      },
+      { text: "Khoros", emphasis: true },
+      {
+        text: ", he advanced to Senior Software Engineer and led frontend architecture for page builder and WYSIWYG systems. Earlier client-facing roles at ",
+      },
+      { text: "TINT", emphasis: true },
+      { text: " and " },
+      { text: "Stitch Fix", emphasis: true },
+      {
+        text: " sharpen product judgment when translating ambiguous requirements into software that holds up in production.",
+      },
+    ],
+  ] satisfies AboutSegment[][],
   bio: [
     {
       emphasis: "I'm a software developer",

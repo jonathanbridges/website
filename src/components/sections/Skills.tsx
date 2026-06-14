@@ -1,4 +1,5 @@
 import { skills } from "@/content";
+import { eyebrowMuted } from "@/constants/typography";
 import { Section } from "@/components/Layout/Section";
 
 export function Skills() {
@@ -11,7 +12,7 @@ export function Skills() {
         {skills.map((skill) => (
           <li
             key={skill.name}
-            className="text-eyebrow tracking-[0.25em]"
+            className={`${eyebrowMuted} font-medium tracking-[0.25em]`}
           >
             {skill.name}
           </li>

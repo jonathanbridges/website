@@ -1,4 +1,5 @@
 import { useRef, type ReactNode } from "react";
+import { eyebrowMuted } from "@/constants/typography";
 import { useInView } from "@/hooks/useScroll";
 
 export type SectionTone = "base" | "muted" | "warm" | "cool";
@@ -44,7 +45,7 @@ export function Section({
       {label && (
         <p
           id={`${id}-label`}
-          className="mb-8 text-center text-eyebrow tracking-[0.45em]"
+          className={`mb-8 text-center ${eyebrowMuted} tracking-[0.45em]`}
         >
           {label}
         </p>

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { ChatWidget } from "@/components/ai/ChatWidget";
-import { Footer } from "@/components/Layout/Footer";
+import { SiteChrome } from "@/components/Layout/SiteChrome";
 import { HEADER_HEIGHT_PX } from "@/constants/layout";
 import { Header, SECTIONS } from "@/components/Layout/Header";
 import { ScrollProgress } from "@/components/Layout/ScrollProgress";
@@ -61,7 +61,7 @@ function App() {
       <Header activeSection={activeSection} onNavigate={handleNavigate} />
       <main
         className={`h-dvh snap-y snap-mandatory overflow-y-scroll scroll-smooth motion-reduce:snap-none motion-reduce:scroll-auto ${
-          theme === "geocities" ? "pb-[var(--geocities-footer-height)]" : ""
+          theme === "geocities" ? "pb-44" : "pb-14 md:pb-16"
         }`}
       >
         <Hero />
@@ -69,8 +69,8 @@ function App() {
         <Skills />
         <Experience />
         <Contact />
-        <Footer />
       </main>
+      <SiteChrome theme={theme} />
       <ChatWidget />
     </>
   );
