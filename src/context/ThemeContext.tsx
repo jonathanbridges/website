@@ -1,43 +1,20 @@
 import {
   useCallback,
-  useEffect,
+  useLayoutEffect,
   useMemo,
   useState,
   type ReactNode,
 } from "react";
 import { ThemeContext } from "@/context/theme-context";
-import {
-  THEME_STORAGE_KEY,
-  THEMES,
-  type Theme,
-} from "@/types/theme";
-
-function getInitialTheme(): Theme {
-  if (typeof window === "undefined") return "light";
-
-  const stored = localStorage.getItem(THEME_STORAGE_KEY);
-  if (stored && THEMES.includes(stored as Theme)) {
-    return stored as Theme;
-  }
-
-  const legacyDark = localStorage.getItem("DarkMode");
-  if (legacyDark) {
-    try {
-      const parsed = JSON.parse(legacyDark) as { isDark?: boolean };
-      return parsed.isDark ? "dark" : "light";
-    } catch {
-      return "light";
-    }
-  }
-
-  return "light";
-}
+import { applyTheme, getStoredTheme } from "@/theme/resolve-theme";
+import type { Theme } from "@/types/theme";
+import { THEME_STORAGE_KEY, THEMES } from "@/types/theme";
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>(getInitialTheme);
+  const [theme, setThemeState] = useState<Theme>(getStoredTheme);
 
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
+  useLayoutEffect(() => {
+    applyTheme(theme);
     localStorage.setItem(THEME_STORAGE_KEY, theme);
   }, [theme]);
 

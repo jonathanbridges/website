@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { contact } from "@/content";
+import { contact, profile } from "@/content";
 import { useTheme } from "@/hooks/useTheme";
 import { THEME_LABELS, type Theme } from "@/types/theme";
 
 export const SECTIONS = [
-  { id: "home", label: "Home" },
+  { id: "home", label: "Index" },
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
 ] as const;
 
@@ -28,16 +27,17 @@ export function Header({ activeSection, onNavigate }: HeaderProps) {
 
   return (
     <header
-      className="fixed top-0 right-0 left-0 z-50 border-b border-theme backdrop-blur-md"
+      className="fixed top-0 right-0 left-0 z-50 h-16 border-b border-theme backdrop-blur-md"
       style={{ backgroundColor: "var(--color-header-bg)" }}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-12">
+      <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-6 md:px-12">
         <button
           type="button"
           onClick={() => handleNav("home")}
-          className="text-display text-lg font-normal text-primary transition-opacity hover:opacity-70 md:text-xl"
+          className="text-eyebrow cursor-pointer tracking-[0.35em] text-primary transition-opacity hover:opacity-60"
         >
-          Jonathan Bridges
+          <span className="lg:hidden">{profile.shortName}</span>
+          <span className="hidden lg:inline">{profile.name}</span>
         </button>
 
         <nav className="hidden items-center gap-6 md:flex" aria-label="Main">
@@ -46,7 +46,7 @@ export function Header({ activeSection, onNavigate }: HeaderProps) {
               key={id}
               type="button"
               onClick={() => handleNav(id)}
-              className={`text-sm uppercase tracking-wider transition-colors ${
+              className={`cursor-pointer text-sm uppercase tracking-wider transition-colors ${
                 activeSection === id
                   ? "text-[var(--color-accent)]"
                   : "text-muted hover:text-primary"
@@ -65,7 +65,7 @@ export function Header({ activeSection, onNavigate }: HeaderProps) {
                 type="button"
                 onClick={() => setTheme(t)}
                 aria-pressed={theme === t}
-                className={`rounded px-2 py-1 text-xs uppercase tracking-wide transition-colors ${
+                className={`cursor-pointer rounded px-2 py-1 text-xs uppercase tracking-wide transition-colors ${
                   theme === t
                     ? "bg-[var(--color-accent)] text-[var(--color-bg)]"
                     : "text-muted hover:text-primary"
@@ -79,7 +79,7 @@ export function Header({ activeSection, onNavigate }: HeaderProps) {
           <button
             type="button"
             onClick={cycleTheme}
-            className="rounded px-2 py-1 text-xs uppercase tracking-wide text-muted hover:text-primary sm:hidden"
+            className="cursor-pointer rounded px-2 py-1 text-xs uppercase tracking-wide text-muted hover:text-primary sm:hidden"
             aria-label="Cycle theme"
           >
             Theme
@@ -89,7 +89,7 @@ export function Header({ activeSection, onNavigate }: HeaderProps) {
             href={contact.social.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden opacity-70 transition-opacity hover:opacity-100 sm:block"
+            className="hidden cursor-pointer opacity-70 transition-opacity hover:opacity-100 sm:block"
             aria-label="GitHub"
           >
             <img
@@ -102,7 +102,7 @@ export function Header({ activeSection, onNavigate }: HeaderProps) {
             href={contact.social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden text-muted hover:text-primary sm:block"
+            className="hidden cursor-pointer text-muted hover:text-primary sm:block"
             aria-label="LinkedIn"
           >
             <img src="/graphics/linkedin.svg" alt="" className="h-5 w-5" />
@@ -110,7 +110,7 @@ export function Header({ activeSection, onNavigate }: HeaderProps) {
 
           <button
             type="button"
-            className="flex flex-col gap-1.5 md:hidden"
+            className="flex cursor-pointer flex-col gap-1.5 md:hidden"
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
             aria-label="Toggle menu"
@@ -126,7 +126,8 @@ export function Header({ activeSection, onNavigate }: HeaderProps) {
       {menuOpen && (
         <nav
           id="mobile-nav"
-          className="border-t border-theme px-6 py-4 md:hidden"
+          className="absolute top-full right-0 left-0 border-t border-theme px-6 py-4 backdrop-blur-md md:hidden"
+          style={{ backgroundColor: "var(--color-header-bg)" }}
           aria-label="Mobile"
         >
           <ul className="flex flex-col gap-3">
@@ -135,7 +136,7 @@ export function Header({ activeSection, onNavigate }: HeaderProps) {
                 <button
                   type="button"
                   onClick={() => handleNav(id)}
-                  className={`w-full text-left text-sm uppercase tracking-wider ${
+                  className={`w-full cursor-pointer text-left text-sm uppercase tracking-wider ${
                     activeSection === id
                       ? "text-[var(--color-accent)]"
                       : "text-muted"

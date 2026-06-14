@@ -1,13 +1,24 @@
 import { useRef, type ReactNode } from "react";
 import { useInView } from "@/hooks/useScroll";
 
+export type SectionTone = "base" | "muted" | "warm" | "cool";
+
 interface SectionProps {
   id: string;
   label?: string;
   children: ReactNode;
   className?: string;
   fullHeight?: boolean;
+  tone?: SectionTone;
+  align?: "center" | "left";
 }
+
+const toneClass: Record<SectionTone, string> = {
+  base: "section-tone-base",
+  muted: "section-tone-muted",
+  warm: "section-tone-warm",
+  cool: "section-tone-cool",
+};
 
 export function Section({
   id,
@@ -15,6 +26,8 @@ export function Section({
   children,
   className = "",
   fullHeight = true,
+  tone = "base",
+  align = "center",
 }: SectionProps) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref);
@@ -23,20 +36,24 @@ export function Section({
     <section
       id={id}
       ref={ref}
-      className={`snap-section relative px-6 py-24 md:px-12 lg:px-20 ${
-        fullHeight ? "min-h-screen flex flex-col justify-center" : ""
-      } ${className}`}
+      className={`snap-start ${toneClass[tone]} relative px-6 py-24 md:px-12 ${
+        fullHeight ? "h-dvh" : "min-h-dvh"
+      } flex flex-col items-center justify-center ${className}`}
       aria-labelledby={label ? `${id}-label` : undefined}
     >
       {label && (
         <p
           id={`${id}-label`}
-          className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-muted"
+          className="mb-8 text-center text-eyebrow tracking-[0.45em]"
         >
           {label}
         </p>
       )}
-      <div className={`animate-in-view w-full max-w-5xl ${inView ? "visible" : ""}`}>
+      <div
+        className={`animate-in-view flex w-full max-w-4xl flex-col ${
+          align === "left" ? "items-stretch text-left" : "items-center text-center"
+        } ${inView ? "visible" : ""}`}
+      >
         {children}
       </div>
     </section>

@@ -3,21 +3,13 @@ import { Section } from "@/components/Layout/Section";
 
 export function About() {
   return (
-    <Section id="about" label="About">
-      <h2 className="text-display mb-12 text-5xl text-primary md:text-7xl">
-        Who Am I?
-      </h2>
-      <div className="space-y-6 text-lg leading-relaxed text-muted">
-        {profile.bio.map((paragraph, i) =>
-          typeof paragraph === "string" ? (
-            <p key={i}>{paragraph}</p>
-          ) : (
-            <p key={i}>
-              <strong className="text-primary">{paragraph.emphasis}</strong>
-              {paragraph.text}
-            </p>
-          )
-        )}
+    <Section id="about" label="About" tone="muted" align="left">
+      <div className="mx-auto flex w-full max-w-3xl flex-col gap-8 text-left md:gap-10">
+        {profile.blurb.map((paragraph) => (
+          <p key={paragraph.slice(0, 32)} className="text-newspaper">
+            {paragraph}
+          </p>
+        ))}
       </div>
     </Section>
   );

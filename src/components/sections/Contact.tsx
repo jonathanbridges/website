@@ -44,102 +44,101 @@ export function Contact() {
   };
 
   const inputClass =
-    "w-full border border-theme bg-[var(--color-bg)] px-4 py-3 text-primary placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]";
+    "w-full border-b border-theme bg-transparent px-0 py-3 text-center text-primary placeholder:text-muted focus:outline-none focus:border-[var(--color-accent)]";
 
   return (
-    <Section id="contact" label="Contact" fullHeight={false}>
-      <h2 className="text-display mb-12 text-5xl text-primary md:text-7xl">
+    <Section id="contact" label="Contact" fullHeight tone="muted">
+      <h2 className="text-block mb-12 text-3xl sm:text-5xl md:text-6xl">
         Get in Touch
       </h2>
-      <div className="grid gap-12 lg:grid-cols-2">
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label htmlFor="subject" className="mb-2 block text-sm text-muted">
-              Subject
-            </label>
-            <input
-              id="subject"
-              name="subject"
-              type="text"
-              required
-              disabled={isSubmitting}
-              placeholder="Enter a subject"
-              className={inputClass}
-            />
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div>
-              <label htmlFor="name" className="mb-2 block text-sm text-muted">
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                required
-                disabled={isSubmitting}
-                placeholder="Enter your name"
-                className={inputClass}
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="mb-2 block text-sm text-muted">
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                disabled={isSubmitting}
-                placeholder="Enter your email"
-                className={inputClass}
-              />
-            </div>
-          </div>
-          <div>
-            <label htmlFor="message" className="mb-2 block text-sm text-muted">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={5}
-              required
-              disabled={isSubmitting}
-              placeholder="Enter a message"
-              className={inputClass}
-            />
-          </div>
-          {status.message && (
-            <p
-              className={`text-sm ${status.ok ? "text-primary" : "text-red-500"}`}
-              role="status"
-            >
-              {status.message}
-            </p>
-          )}
-          <button
-            type="submit"
+      <form
+        onSubmit={handleSubmit}
+        className="mx-auto w-full max-w-md space-y-6 text-center"
+      >
+        <div>
+          <label htmlFor="subject" className="sr-only">
+            Subject
+          </label>
+          <input
+            id="subject"
+            name="subject"
+            type="text"
+            required
             disabled={isSubmitting}
-            className="border border-theme px-8 py-3 text-sm font-medium uppercase tracking-wider text-primary transition-colors hover:bg-[var(--color-bg-muted)] disabled:opacity-50"
+            placeholder="Subject"
+            className={inputClass}
+          />
+        </div>
+        <div>
+          <label htmlFor="name" className="sr-only">
+            Name
+          </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            disabled={isSubmitting}
+            placeholder="Name"
+            className={inputClass}
+          />
+        </div>
+        <div>
+          <label htmlFor="email" className="sr-only">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            disabled={isSubmitting}
+            placeholder="Email"
+            className={inputClass}
+          />
+        </div>
+        <div>
+          <label htmlFor="message" className="sr-only">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows={4}
+            required
+            disabled={isSubmitting}
+            placeholder="Message"
+            className={`${inputClass} resize-none`}
+          />
+        </div>
+        {status.message && (
+          <p
+            className={`text-sm ${status.ok ? "text-primary" : "text-red-500"}`}
+            role="status"
           >
-            {isSubmitting ? "Sending…" : "Send Message"}
-          </button>
-          <div className="flex flex-wrap gap-4 pt-2 text-sm">
-            <a href={`mailto:${contact.email}`}>{contact.email}</a>
-            <a href={`tel:${contact.phone.replace(/\./g, "")}`}>
-              {contact.phone}
-            </a>
-          </div>
-        </form>
-        <div
-          className="hidden min-h-[400px] bg-cover bg-center lg:block"
-          style={{ backgroundImage: "url(/images/about.jpg)" }}
-          role="img"
-          aria-label="Jonathan Bridges"
-        />
-      </div>
+            {status.message}
+          </p>
+        )}
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="text-eyebrow tracking-[0.35em] text-primary transition-opacity hover:opacity-60 disabled:opacity-50"
+        >
+          {isSubmitting ? "Sending…" : "Send"}
+        </button>
+        <div className="flex flex-wrap items-center justify-center gap-4 pt-4 text-sm text-muted">
+          <a href={`mailto:${contact.email}`} className="cursor-pointer hover:text-primary">
+            {contact.email}
+          </a>
+          <span aria-hidden>·</span>
+          <a
+            href={`tel:${contact.phone.replace(/\./g, "")}`}
+            className="cursor-pointer hover:text-primary"
+          >
+            {contact.phone}
+          </a>
+        </div>
+      </form>
     </Section>
   );
 }

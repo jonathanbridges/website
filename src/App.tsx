@@ -1,16 +1,18 @@
 import { useCallback, useEffect, useState } from "react";
 import { ChatWidget } from "@/components/ai/ChatWidget";
 import { Footer } from "@/components/Layout/Footer";
+import { HEADER_HEIGHT_PX } from "@/constants/layout";
 import { Header, SECTIONS } from "@/components/Layout/Header";
 import { ScrollProgress } from "@/components/Layout/ScrollProgress";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
 import { Experience } from "@/components/sections/Experience";
 import { Hero } from "@/components/sections/Hero";
-import { Projects } from "@/components/sections/Projects";
 import { Skills } from "@/components/sections/Skills";
+import { useTheme } from "@/hooks/useTheme";
 
 function App() {
+  const { theme } = useTheme();
   const [activeSection, setActiveSection] = useState("home");
 
   const handleNavigate = useCallback((id: string) => {
@@ -19,6 +21,9 @@ function App() {
   }, []);
 
   useEffect(() => {
+    const main = document.querySelector("main");
+    if (!main) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -29,7 +34,11 @@ function App() {
           setActiveSection(visible[0].target.id);
         }
       },
-      { threshold: [0.25, 0.5, 0.75], rootMargin: "-80px 0px -40% 0px" }
+      {
+        threshold: [0.25, 0.5, 0.75],
+        root: main,
+        rootMargin: `-${HEADER_HEIGHT_PX}px 0px -40% 0px`,
+      }
     );
 
     SECTIONS.forEach(({ id }) => {
@@ -50,12 +59,15 @@ function App() {
       </a>
       <ScrollProgress />
       <Header activeSection={activeSection} onNavigate={handleNavigate} />
-      <main className="snap-container pt-16">
+      <main
+        className={`h-dvh snap-y snap-mandatory overflow-y-scroll scroll-smooth motion-reduce:snap-none motion-reduce:scroll-auto ${
+          theme === "geocities" ? "pb-[var(--geocities-footer-height)]" : ""
+        }`}
+      >
         <Hero />
         <About />
         <Skills />
         <Experience />
-        <Projects />
         <Contact />
         <Footer />
       </main>

@@ -1,36 +1,50 @@
 import { profile } from "@/content";
 import { Section } from "@/components/Layout/Section";
 
+const fullNameParts = profile.name.split(" ");
+const shortNameParts = profile.shortName.split(" ");
+
 export function Hero() {
   return (
-    <Section id="home" fullHeight>
-      <div className="space-y-8">
-        <p className="text-xs font-medium uppercase tracking-[0.4em] text-muted">
+    <Section id="home" label="Index" tone="base">
+      <div className="flex w-full flex-col items-center gap-6 md:gap-8">
+        <p className="text-eyebrow tracking-[0.5em]">
           {profile.location}
         </p>
-        <h1 className="text-display text-6xl leading-[0.95] font-normal text-primary md:text-8xl lg:text-9xl">
-          {profile.name}
+        <h1 className="text-block flex flex-col items-center text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8.5rem]">
+          <span className="flex flex-col items-center lg:hidden">
+            {shortNameParts.map((part) => (
+              <span key={part}>{part}</span>
+            ))}
+          </span>
+          <span className="hidden flex-col items-center lg:flex">
+            {fullNameParts.map((part) => (
+              <span key={part}>{part}</span>
+            ))}
+          </span>
         </h1>
-        <p className="text-display text-3xl text-[var(--color-accent)] md:text-5xl">
-          {profile.tagline}
+        <p className="text-block flex flex-col items-center text-3xl text-[var(--color-accent)] sm:text-5xl md:text-6xl lg:text-7xl">
+          {profile.tagline.split(" ").map((word) => (
+            <span key={word}>{word}</span>
+          ))}
         </p>
-        <p className="max-w-2xl text-lg leading-relaxed text-muted md:text-xl">
-          {profile.pullQuote}
-        </p>
-        <div className="flex flex-wrap gap-4 pt-4">
+        <div className="flex flex-wrap items-center justify-center gap-4 pt-6">
           <a
             href={profile.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center border border-theme px-6 py-3 text-sm font-medium uppercase tracking-wider text-primary transition-colors hover:bg-[var(--color-bg-muted)]"
+            className="text-eyebrow cursor-pointer tracking-[0.35em] text-primary underline underline-offset-4 transition-opacity hover:opacity-60"
           >
-            View Resume
+            Resume
           </a>
+          <span className="text-muted" aria-hidden>
+            ·
+          </span>
           <a
             href="#about"
-            className="inline-flex items-center px-6 py-3 text-sm font-medium uppercase tracking-wider text-muted transition-colors hover:text-primary"
+            className="text-eyebrow cursor-pointer tracking-[0.35em] transition-colors hover:text-primary"
           >
-            Learn More ↓
+            Scroll
           </a>
         </div>
       </div>
