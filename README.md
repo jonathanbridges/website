@@ -13,6 +13,8 @@ The previous Create React App version lives in [`legacy/`](legacy/).
 nvm use          # switches to Node 24
 ```
 
+Supply-chain settings live in [`pnpm-workspace.yaml`](pnpm-workspace.yaml) (`minimumReleaseAge`, `trustPolicy`, `allowBuilds`, etc.). Run `pnpm audit` to check advisories.
+
 ## Development
 
 ```bash

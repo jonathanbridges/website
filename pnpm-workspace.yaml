@@ -2,12 +2,28 @@ packages:
   - "."
   - "worker"
 
+# Force patched esbuild (GHSA-gv7w-rqvm-qjhr, GHSA-g7r4-m6w7-qqqr)
+overrides:
+  esbuild: ">=0.28.1"
+
+# Supply chain (pnpm 11 defaults made explicit)
+blockExoticSubdeps: true
+minimumReleaseAge: 1440
+minimumReleaseAgeStrict: false
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 43200 # 30 days — skip trust downgrade checks for older releases
+
+# Build scripts: explicit allowlist (replaces onlyBuiltDependencies)
 allowBuilds:
   esbuild: true
   sharp: true
   workerd: true
 
 autoInstallPeers: true
+verifyDepsBeforeRun: install
+strictDepBuilds: true
 
+# Bypass release-age delay for known-safe or urgent updates
 minimumReleaseAgeExclude:
   - eslint-plugin-react-refresh@0.5.3
+  - esbuild@0.28.1
