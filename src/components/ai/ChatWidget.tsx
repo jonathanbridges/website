@@ -7,6 +7,8 @@ interface Message {
 
 const CHAT_API_URL = import.meta.env.VITE_CHAT_API_URL;
 
+// TODO: Expand AI chat integration — streaming responses, site-aware context, and production monitoring.
+
 export function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);

@@ -32,6 +32,9 @@ legacy/build
 .env.local
 .env.*.local
 
+# Local resume reference (not for publication)
+src/theme/jonathan-bridges-contributions.md
+
 # Package manager
 .npm-cache
 .pnpm-store

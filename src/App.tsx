@@ -80,6 +80,7 @@ function App() {
       </main>
       <SiteChrome theme={theme} />
       <ChatWidget />
+      {/* TODO: Finish AI chat integration — wire worker deploy, prompt tuning, and fallback UX review. */}
     </>
   );
 }
