@@ -2,17 +2,20 @@ import { useState } from "react";
 import { GeocitiesButtons } from "@/components/easter-eggs/GeocitiesButtons";
 import { GeocitiesMarquee } from "@/components/easter-eggs/GeocitiesMarquee";
 import { SfClock } from "@/components/Layout/SfClock";
-import { FOOTER_INSET, FOOTER_INSET_X, FOOTER_INSET_Y } from "@/constants/layout";
+import { FOOTER_INSET, FOOTER_INSET_X, FOOTER_INSET_Y, FOOTER_META_HIDDEN_SECTIONS } from "@/constants/layout";
 import { eyebrowMuted } from "@/constants/typography";
 import { profile } from "@/content/profile";
 
 interface SiteChromeProps {
   theme: "light" | "dark" | "geocities";
+  activeSection: string;
 }
 
-export function SiteChrome({ theme }: SiteChromeProps) {
+export function SiteChrome({ theme, activeSection }: SiteChromeProps) {
   const year = new Date().getFullYear();
   const isGeocities = theme === "geocities";
+  const hideFooterMeta =
+    !isGeocities && FOOTER_META_HIDDEN_SECTIONS.has(activeSection);
   const [visitorCount] = useState(
     () => Math.floor(Math.random() * 90000) + 10000
   );
@@ -59,6 +62,10 @@ export function SiteChrome({ theme }: SiteChromeProps) {
         </div>
       </footer>
     );
+  }
+
+  if (hideFooterMeta) {
+    return null;
   }
 
   return (

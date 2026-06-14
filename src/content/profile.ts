@@ -6,7 +6,7 @@ export type AboutSegment = {
 export const profile = {
   name: "Jonathan Bridges",
   shortName: "Jon Bridges",
-  tagline: "Full-Stack Software Engineer",
+  tagline: "Software Developer",
   location: "San Francisco, CA",
   resumeUrl:
     "https://docs.google.com/document/d/12wndBuWVkX4Hc6_BYDKZFoEdm8er5dSFmWjG1LzIlU0",

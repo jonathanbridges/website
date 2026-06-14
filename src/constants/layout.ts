@@ -5,3 +5,6 @@ export const HEADER_HEIGHT_PX = 64;
 export const FOOTER_INSET_X = "px-6 md:px-12";
 export const FOOTER_INSET_Y = "py-4 md:py-5";
 export const FOOTER_INSET = `${FOOTER_INSET_X} ${FOOTER_INSET_Y}`;
+
+/** Light/dark themes hide copyright + clock on these sections */
+export const FOOTER_META_HIDDEN_SECTIONS = new Set(["experience", "contact"]);
