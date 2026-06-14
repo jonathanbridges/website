@@ -195,6 +195,25 @@
     color: var(--color-fg);
   }
 
+  .link-underline-tracked {
+    --link-tracking: 0.35em;
+    position: relative;
+    display: inline-block;
+    letter-spacing: var(--link-tracking);
+    padding-bottom: 0.125rem;
+    text-decoration: none;
+  }
+
+  .link-underline-tracked::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: calc(100% - var(--link-tracking));
+    background-color: currentColor;
+  }
+
   .text-blurb {
     font-family: var(--font-body);
     font-size: 1.0625rem;
@@ -269,19 +288,6 @@
     background-color: var(--section-cool);
   }
 
-  .animate-in-view {
-    opacity: 0;
-    transform: translateY(24px);
-    transition:
-      opacity 0.6s ease,
-      transform 0.6s ease;
-  }
-
-  .animate-in-view.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
   .blink {
     animation: blink 1s step-end infinite;
   }
@@ -345,12 +351,6 @@
   button:not(:disabled):active,
   [role="button"]:not([aria-disabled="true"]):active {
     transform: none;
-  }
-
-  .animate-in-view {
-    opacity: 1;
-    transform: none;
-    transition: none;
   }
 
   .blink,

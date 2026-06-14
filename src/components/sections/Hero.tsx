@@ -34,7 +34,7 @@ export function Hero() {
             href={profile.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${eyebrowPrimary} inline-block cursor-pointer border-b border-current pb-0.5 tracking-[0.35em] transition-opacity hover:opacity-60`}
+            className={`${eyebrowPrimary} link-underline-tracked cursor-pointer transition-opacity hover:opacity-60`}
           >
             Resume
           </a>

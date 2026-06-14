@@ -1,4 +1,4 @@
-import { useEffect, useState, type RefObject } from "react";
+import { useEffect, useState } from "react";
 
 export function useScrollProgress(): number {
   const [progress, setProgress] = useState(0);
@@ -17,26 +17,4 @@ export function useScrollProgress(): number {
   }, []);
 
   return progress;
-}
-
-export function useInView(
-  ref: RefObject<HTMLElement | null>,
-  threshold = 0.15
-): boolean {
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setInView(entry.isIntersecting),
-      { threshold }
-    );
-
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, [ref, threshold]);
-
-  return inView;
 }

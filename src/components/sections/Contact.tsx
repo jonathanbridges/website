@@ -39,12 +39,14 @@ function Field({ id, label, error, children }: FieldProps) {
 
 const fieldClass = (hasError: boolean) =>
   [
-    "w-full rounded-sm border bg-[var(--color-bg)] px-4 py-3 text-primary",
+    "w-full rounded border bg-[var(--color-bg)] px-4 py-3 text-primary",
     "focus:outline-none focus:ring-1",
     hasError
       ? "border-red-500 focus:border-red-500 focus:ring-red-500/30"
       : "border-theme focus:border-[var(--color-accent)] focus:ring-[var(--color-accent)]/30",
   ].join(" ");
+
+const submitClass = `${eyebrowPrimary} w-full rounded px-6 py-3 tracking-[0.35em] bg-[var(--color-accent)] text-[var(--color-bg)] transition-opacity hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-50`;
 
 export function Contact() {
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus | null>(null);
@@ -103,11 +105,7 @@ export function Contact() {
       </h2>
 
       <div className="mx-auto w-full max-w-lg">
-        <form
-          onSubmit={onSubmit}
-          noValidate
-          className="space-y-5 border border-theme bg-[var(--color-bg)] p-6 shadow-sm md:p-8"
-        >
+        <form onSubmit={onSubmit} noValidate className="space-y-5">
           <Field id="subject" label="Subject" error={errors.subject?.message}>
             <input
               id="subject"
@@ -178,7 +176,7 @@ export function Contact() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`${eyebrowPrimary} w-full border border-[var(--color-accent)] px-6 py-3.5 tracking-[0.35em] transition-colors hover:bg-[var(--color-accent)] hover:text-[var(--color-bg)] disabled:cursor-not-allowed disabled:opacity-50`}
+              className={submitClass}
             >
               {isSubmitting ? "Sending…" : "Send Message"}
             </button>

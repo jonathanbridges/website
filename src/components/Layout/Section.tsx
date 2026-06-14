@@ -1,6 +1,5 @@
-import { useRef, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { eyebrowMuted } from "@/constants/typography";
-import { useInView } from "@/hooks/useScroll";
 
 export type SectionTone = "base" | "muted" | "warm" | "cool";
 
@@ -30,13 +29,9 @@ export function Section({
   tone = "base",
   align = "center",
 }: SectionProps) {
-  const ref = useRef<HTMLElement>(null);
-  const inView = useInView(ref);
-
   return (
     <section
       id={id}
-      ref={ref}
       className={`snap-start ${toneClass[tone]} relative px-6 py-24 md:px-12 ${
         fullHeight ? "h-dvh" : "min-h-dvh"
       } flex flex-col items-center justify-center ${className}`}
@@ -51,9 +46,9 @@ export function Section({
         </p>
       )}
       <div
-        className={`animate-in-view flex w-full max-w-4xl flex-col ${
+        className={`flex w-full max-w-4xl flex-col ${
           align === "left" ? "items-stretch text-left" : "items-center text-center"
-        } ${inView ? "visible" : ""}`}
+        }`}
       >
         {children}
       </div>

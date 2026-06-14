@@ -24,29 +24,37 @@ function App() {
     const main = document.querySelector("main");
     if (!main) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visible[0]?.target.id) {
-          setActiveSection(visible[0].target.id);
-        }
-      },
-      {
-        threshold: [0.25, 0.5, 0.75],
-        root: main,
-        rootMargin: `-${HEADER_HEIGHT_PX}px 0px -40% 0px`,
-      }
-    );
-
-    SECTIONS.forEach(({ id }) => {
+    const sections = SECTIONS.map(({ id }) => {
       const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+      return el ? { id, el } : null;
+    }).filter((section) => section !== null);
 
-    return () => observer.disconnect();
+    const getSectionTop = (el: HTMLElement) => {
+      const mainRect = main.getBoundingClientRect();
+      return el.getBoundingClientRect().top - mainRect.top + main.scrollTop;
+    };
+
+    const updateActiveSection = () => {
+      const marker = main.scrollTop + HEADER_HEIGHT_PX + 1;
+      let active = sections[0]?.id ?? "home";
+
+      for (const { id, el } of sections) {
+        if (getSectionTop(el) <= marker) {
+          active = id;
+        }
+      }
+
+      setActiveSection(active);
+    };
+
+    updateActiveSection();
+    main.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      main.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, []);
 
   return (
