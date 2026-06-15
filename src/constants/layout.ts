@@ -8,3 +8,9 @@ export const FOOTER_INSET = `${FOOTER_INSET_X} ${FOOTER_INSET_Y}`;
 
 /** Light/dark themes hide copyright + clock on these sections */
 export const FOOTER_META_HIDDEN_SECTIONS = new Set(["experience", "contact"]);
+
+/**
+ * Bottom padding on `<main>` when GeoCities footer is fixed.
+ * Mobile stacks marquee + button grid + “Best viewed” + clock row — needs more room.
+ */
+export const GEOCITIES_MAIN_PADDING = "pb-96 md:pb-56";

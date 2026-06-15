@@ -12,7 +12,7 @@ export function Hero() {
         <p className={`${eyebrowMuted} tracking-[0.5em]`}>
           {profile.location}
         </p>
-        <h1 className="text-block flex flex-col items-center text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8.5rem]">
+        <h1 className="text-block flex flex-col items-center text-5xl sm:text-7xl md:text-8xl lg:text-[6rem] xl:text-[7rem]">
           <span className="flex flex-col items-center lg:hidden">
             {shortNameParts.map((part) => (
               <span key={part}>{part}</span>
@@ -24,7 +24,7 @@ export function Hero() {
             ))}
           </span>
         </h1>
-        <p className="text-block flex flex-col items-center text-3xl text-[var(--color-accent)] sm:text-5xl md:text-6xl lg:text-7xl">
+        <p className="text-block flex flex-col items-center text-3xl text-[var(--color-accent)] sm:text-5xl md:text-6xl lg:text-6xl">
           {profile.tagline.split(" ").map((word) => (
             <span key={word}>{word}</span>
           ))}

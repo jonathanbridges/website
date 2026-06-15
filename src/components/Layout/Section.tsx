@@ -8,9 +8,12 @@ interface SectionProps {
   label?: string;
   children: ReactNode;
   className?: string;
+  contentClassName?: string;
   fullHeight?: boolean;
   tone?: SectionTone;
   align?: "center" | "left";
+  /** When true, section content is top-aligned on mobile and centered from md up */
+  mobilePinStart?: boolean;
 }
 
 const toneClass: Record<SectionTone, string> = {
@@ -25,16 +28,22 @@ export function Section({
   label,
   children,
   className = "",
+  contentClassName = "",
   fullHeight = true,
   tone = "base",
   align = "center",
+  mobilePinStart = false,
 }: SectionProps) {
+  const verticalAlignClass = mobilePinStart
+    ? "max-md:justify-start md:justify-center"
+    : "justify-center";
+
   return (
     <section
       id={id}
       className={`snap-start ${toneClass[tone]} relative px-6 py-24 md:px-12 ${
         fullHeight ? "h-dvh" : "min-h-dvh"
-      } flex flex-col items-center justify-center ${className}`}
+      } flex flex-col items-center ${verticalAlignClass} ${className}`}
       aria-labelledby={label ? `${id}-label` : undefined}
     >
       {label && (
@@ -48,7 +57,7 @@ export function Section({
       <div
         className={`flex w-full max-w-4xl flex-col ${
           align === "left" ? "items-stretch text-left" : "items-center text-center"
-        }`}
+        } ${contentClassName}`}
       >
         {children}
       </div>

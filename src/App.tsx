@@ -1,7 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import { ChatWidget } from "@/components/ai/ChatWidget";
 import { SiteChrome } from "@/components/Layout/SiteChrome";
-import { HEADER_HEIGHT_PX, FOOTER_META_HIDDEN_SECTIONS } from "@/constants/layout";
+import {
+  FOOTER_META_HIDDEN_SECTIONS,
+  GEOCITIES_MAIN_PADDING,
+  HEADER_HEIGHT_PX,
+} from "@/constants/layout";
 import { Header, SECTIONS } from "@/components/Layout/Header";
 import { ScrollProgress } from "@/components/Layout/ScrollProgress";
 import { About } from "@/components/sections/About";
@@ -71,9 +75,11 @@ function App() {
       <ScrollProgress />
       <Header activeSection={activeSection} onNavigate={handleNavigate} />
       <main
-        className={`h-dvh snap-y snap-mandatory overflow-y-scroll scroll-smooth motion-reduce:snap-none motion-reduce:scroll-auto ${
+        className={`h-dvh overflow-y-scroll scroll-smooth motion-reduce:scroll-auto ${
+          theme === "geocities" ? "" : "snap-y snap-mandatory motion-reduce:snap-none"
+        } ${
           theme === "geocities"
-            ? "pb-44"
+            ? GEOCITIES_MAIN_PADDING
             : hideFooterMeta
               ? "pb-6 md:pb-8"
               : "pb-14 md:pb-16"
