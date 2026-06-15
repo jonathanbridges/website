@@ -1,5 +1,6 @@
 import { useScrollProgress } from "@/hooks/useScroll";
 
+/** Thin progress bar along the top edge of the viewport. */
 export function ScrollProgress() {
   const progress = useScrollProgress();
 

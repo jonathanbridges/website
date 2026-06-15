@@ -1,8 +1,10 @@
+/** Single title and date range within a company entry. */
 export interface JobRole {
   title: string;
   date: string;
 }
 
+/** One company block in the experience timeline. */
 export interface ExperienceEntry {
   company: string;
   url: string;

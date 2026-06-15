@@ -9,6 +9,7 @@ const CHAT_API_URL = import.meta.env.VITE_CHAT_API_URL;
 
 // TODO: Expand AI chat integration — streaming responses, site-aware context, and production monitoring.
 
+/** Floating AI chat panel; hidden when `VITE_CHAT_API_URL` is unset. */
 export function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);

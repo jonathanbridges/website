@@ -47,6 +47,7 @@ Projects:
 
 Contact: jbridges7@gmail.com, GitHub: github.com/jonathanbridges, LinkedIn: linkedin.com/in/bridgesjonathan`;
 
+/** Origins allowed to call the chat API, plus optional env override. */
 function getAllowedOrigins(env: Env): string[] {
   const defaults = [
     "https://jonathanbridges.com",
@@ -59,11 +60,13 @@ function getAllowedOrigins(env: Env): string[] {
   return defaults;
 }
 
+/** Returns whether the request origin is on the allow list. */
 function isOriginAllowed(origin: string | null, env: Env): boolean {
   if (!origin) return false;
   return getAllowedOrigins(env).includes(origin);
 }
 
+/** Sliding-window per-IP rate limit for chat requests. */
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
   const entry = rateLimitMap.get(ip);
@@ -81,6 +84,7 @@ function checkRateLimit(ip: string): boolean {
   return true;
 }
 
+/** CORS headers for an allowed origin. */
 function corsHeaders(origin: string): Record<string, string> {
   return {
     "Access-Control-Allow-Origin": origin,
@@ -89,6 +93,7 @@ function corsHeaders(origin: string): Record<string, string> {
   };
 }
 
+/** Cloudflare Worker entry: Anthropic proxy for portfolio chat with CORS and rate limiting. */
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const origin = request.headers.get("Origin");

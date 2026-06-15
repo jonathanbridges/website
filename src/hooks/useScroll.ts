@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+/** Scroll progress from 0 to 1 based on `window` scroll position. */
 export function useScrollProgress(): number {
   const [progress, setProgress] = useState(0);
 

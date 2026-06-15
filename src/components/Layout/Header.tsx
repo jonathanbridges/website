@@ -1,24 +1,16 @@
 import { useState } from "react";
 import { contact, profile } from "@/content";
+import { NAV_SECTIONS } from "@/constants/sections";
 import { eyebrowPrimary } from "@/constants/typography";
 import { useTheme } from "@/hooks/useTheme";
 import { THEME_LABELS, type Theme } from "@/types/theme";
-
-export const NAV_SECTIONS = [
-  { id: "about", label: "About" },
-  { id: "skills", label: "Skills" },
-  { id: "experience", label: "Experience" },
-  { id: "contact", label: "Contact" },
-] as const;
-
-/** All scroll-tracked sections, including home (not shown in nav). */
-export const SECTIONS = [{ id: "home", label: "Home" }, ...NAV_SECTIONS] as const;
 
 interface HeaderProps {
   activeSection: string;
   onNavigate: (id: string) => void;
 }
 
+/** Tailwind classes for header nav links. */
 function navLinkClass(isActive: boolean) {
   return `cursor-pointer text-sm uppercase tracking-wider transition-colors transition-opacity duration-200 ${
     isActive
@@ -27,6 +19,7 @@ function navLinkClass(isActive: boolean) {
   }`;
 }
 
+/** Tailwind classes for theme toggle buttons. */
 function themeButtonClass(isActive: boolean) {
   return `cursor-pointer rounded px-2 py-1 text-xs uppercase tracking-wide transition-colors transition-opacity duration-200 ${
     isActive
@@ -35,6 +28,7 @@ function themeButtonClass(isActive: boolean) {
   }`;
 }
 
+/** Fixed site header with section nav, theme controls, and social links. */
 export function Header({ activeSection, onNavigate }: HeaderProps) {
   const { theme, setTheme, cycleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);

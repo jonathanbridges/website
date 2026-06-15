@@ -3,6 +3,7 @@ import { eyebrowMuted } from "@/constants/typography";
 
 const SF_TIMEZONE = "America/Los_Angeles";
 
+/** Parses clock parts for San Francisco in 24-hour digital form. */
 function getSfTimeParts(date = new Date()) {
   const parts = new Intl.DateTimeFormat("en-US", {
     timeZone: SF_TIMEZONE,
@@ -32,6 +33,7 @@ function getSfTimeParts(date = new Date()) {
   };
 }
 
+/** Ticks every second with America/Los_Angeles time parts. */
 function useSfTime() {
   const [time, setTime] = useState(getSfTimeParts);
 
@@ -45,6 +47,7 @@ function useSfTime() {
   return time;
 }
 
+/** GeoCities-style analog clock face with hour, minute, and second hands. */
 function AnalogClock({
   hours,
   minutes,
@@ -99,6 +102,7 @@ function AnalogClock({
   );
 }
 
+/** Live San Francisco clock in digital or analog presentation. */
 export function SfClock({ variant }: { variant: "digital" | "analog" }) {
   const { hours, minutes, seconds, digital, zone } = useSfTime();
 

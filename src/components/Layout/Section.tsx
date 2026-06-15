@@ -23,6 +23,7 @@ const toneClass: Record<SectionTone, string> = {
   cool: "section-tone-cool",
 };
 
+/** Full-viewport page section with optional label, tone, and snap alignment. */
 export function Section({
   id,
   label,

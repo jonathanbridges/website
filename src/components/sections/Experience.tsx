@@ -2,11 +2,14 @@ import { useCallback, useState, type KeyboardEvent } from "react";
 import { experience } from "@/content";
 import { Section } from "@/components/Layout/Section";
 import { eyebrowMuted } from "@/constants/typography";
+import { useHorizontalSwipe } from "@/hooks/useHorizontalSwipe";
 
+/** Joins role titles and date ranges for display. */
 function formatRoles(roles: (typeof experience)[number]["roles"]) {
   return roles.map((role) => `${role.title} · ${role.date}`).join("  /  ");
 }
 
+/** Mobile dot timeline for jumping between experience entries. */
 function MobileTimelineDots({
   activeIndex,
   onSelect,
@@ -43,6 +46,7 @@ function MobileTimelineDots({
   );
 }
 
+/** Desktop vertical timeline with company and date labels. */
 function DesktopTimeline({
   activeIndex,
   onSelect,
@@ -103,6 +107,7 @@ function DesktopTimeline({
   );
 }
 
+/** Interactive experience timeline with keyboard, swipe, and pager navigation. */
 export function Experience() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeJob = experience[activeIndex];
@@ -118,6 +123,8 @@ export function Experience() {
   const goNext = useCallback(() => {
     goTo(activeIndex + 1);
   }, [activeIndex, goTo]);
+
+  const swipe = useHorizontalSwipe(goNext, goPrev);
 
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
@@ -149,7 +156,8 @@ export function Experience() {
         <article
           key={activeJob.company}
           aria-live="polite"
-          className="text-left"
+          className="text-left max-md:touch-pan-y"
+          {...swipe}
         >
           <a
             href={activeJob.url}
@@ -185,7 +193,9 @@ export function Experience() {
             >
               Previous
             </button>
-            <p className={`${eyebrowMuted} text-xs tabular-nums tracking-[0.15em] sm:text-sm sm:tracking-[0.2em]`}>
+            <p
+              className={`${eyebrowMuted} text-xs tabular-nums tracking-[0.15em] sm:text-sm sm:tracking-[0.2em]`}
+            >
               {activeIndex + 1} / {experience.length}
             </p>
             <button

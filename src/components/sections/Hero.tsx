@@ -5,6 +5,7 @@ import { Section } from "@/components/Layout/Section";
 const fullNameParts = profile.name.split(" ");
 const shortNameParts = profile.shortName.split(" ");
 
+/** Landing section with name, tagline, and resume link. */
 export function Hero() {
   return (
     <Section id="home" tone="base">

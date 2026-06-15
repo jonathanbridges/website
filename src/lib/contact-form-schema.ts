@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+/** Zod schema for the contact form fields and validation messages. */
 export const contactFormSchema = z.object({
   subject: z
     .string()
@@ -23,4 +24,5 @@ export const contactFormSchema = z.object({
     .max(5000, "Message must be 5000 characters or less"),
 });
 
+/** Inferred contact form values from `contactFormSchema`. */
 export type ContactFormValues = z.infer<typeof contactFormSchema>;

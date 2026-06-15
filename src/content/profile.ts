@@ -1,3 +1,4 @@
+/** Inline text span in an about paragraph, optionally emphasized. */
 export type AboutSegment = {
   text: string;
   emphasis?: boolean;

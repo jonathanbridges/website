@@ -4,6 +4,7 @@ import {
   type Theme,
 } from "@/types/theme";
 
+/** Reads the saved theme from localStorage, with legacy dark-mode fallback. */
 export function getStoredTheme(): Theme {
   const stored = localStorage.getItem(THEME_STORAGE_KEY);
   if (stored && THEMES.includes(stored as Theme)) {
@@ -23,6 +24,7 @@ export function getStoredTheme(): Theme {
   return "dark";
 }
 
+/** Sets `data-theme` on the document root for CSS variable switching. */
 export function applyTheme(theme: Theme): void {
   document.documentElement.dataset.theme = theme;
 }

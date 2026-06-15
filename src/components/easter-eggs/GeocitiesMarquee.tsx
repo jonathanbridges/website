@@ -6,6 +6,7 @@ interface GeocitiesMarqueeProps {
   text: string;
 }
 
+/** One repeated segment inside a marquee half-track. */
 function MarqueeHalf({
   segment,
   repeats,
@@ -24,6 +25,7 @@ function MarqueeHalf({
   );
 }
 
+/** Seamless horizontal marquee sized to fill its container width. */
 export function GeocitiesMarquee({ text }: GeocitiesMarqueeProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const segmentMeasureRef = useRef<HTMLSpanElement>(null);

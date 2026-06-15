@@ -11,6 +11,7 @@ interface SiteChromeProps {
   activeSection: string;
 }
 
+/** Fixed footer: GeoCities chrome or minimal copyright and SF clock. */
 export function SiteChrome({ theme, activeSection }: SiteChromeProps) {
   const year = new Date().getFullYear();
   const isGeocities = theme === "geocities";

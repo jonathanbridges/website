@@ -1,6 +1,7 @@
 import { profile, type AboutSegment } from "@/content/profile";
 import { Section } from "@/components/Layout/Section";
 
+/** Renders one about paragraph with optional emphasized spans. */
 function AboutParagraph({ segments }: { segments: AboutSegment[] }) {
   return (
     <p className="text-newspaper">
@@ -15,6 +16,7 @@ function AboutParagraph({ segments }: { segments: AboutSegment[] }) {
   );
 }
 
+/** About section with newspaper-style bio copy. */
 export function About() {
   return (
     <Section

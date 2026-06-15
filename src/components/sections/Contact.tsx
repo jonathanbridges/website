@@ -21,6 +21,7 @@ interface FieldProps {
   children: ReactNode;
 }
 
+/** Form field with label and inline validation message. */
 function Field({ id, label, error, children }: FieldProps) {
   return (
     <div className="space-y-2 text-left">
@@ -37,6 +38,7 @@ function Field({ id, label, error, children }: FieldProps) {
   );
 }
 
+/** Input/textarea classes with error-state border and focus ring. */
 const fieldClass = (hasError: boolean) =>
   [
     "w-full rounded border bg-[var(--color-bg)] px-4 py-3 text-primary",
@@ -48,6 +50,7 @@ const fieldClass = (hasError: boolean) =>
 
 const submitClass = `${eyebrowPrimary} w-full rounded px-6 py-3 tracking-[0.35em] bg-[var(--color-accent)] text-[var(--color-bg)] transition-opacity hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-50`;
 
+/** Contact form backed by Formspree with zod validation. */
 export function Contact() {
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus | null>(null);
 

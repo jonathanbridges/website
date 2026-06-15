@@ -10,6 +10,7 @@ import { applyTheme, getStoredTheme } from "@/theme/resolve-theme";
 import type { Theme } from "@/types/theme";
 import { THEME_STORAGE_KEY, THEMES } from "@/types/theme";
 
+/** Provides theme state, persistence, and document `data-theme` updates. */
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(getStoredTheme);
 

@@ -6,7 +6,8 @@ import {
   GEOCITIES_MAIN_PADDING,
   HEADER_HEIGHT_PX,
 } from "@/constants/layout";
-import { Header, SECTIONS } from "@/components/Layout/Header";
+import { SECTIONS } from "@/constants/sections";
+import { Header } from "@/components/Layout/Header";
 import { ScrollProgress } from "@/components/Layout/ScrollProgress";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
@@ -15,6 +16,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Skills } from "@/components/sections/Skills";
 import { useTheme } from "@/hooks/useTheme";
 
+/** Root single-page layout with scroll-snap, section spy, and theme-aware chrome. */
 function App() {
   const { theme } = useTheme();
   const [activeSection, setActiveSection] = useState("home");

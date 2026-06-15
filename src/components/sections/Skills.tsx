@@ -2,6 +2,7 @@ import { skills } from "@/content";
 import { eyebrowMuted } from "@/constants/typography";
 import { Section } from "@/components/Layout/Section";
 
+/** Skills section listing the primary tech stack. */
 export function Skills() {
   return (
     <Section id="skills" label="Skills" tone="warm">

@@ -5,6 +5,7 @@ interface GeocitiesButtonsProps {
   className?: string;
 }
 
+/** Row of classic 88×31 GeoCities footer buttons. */
 export function GeocitiesButtons({
   showCredit = true,
   className = "",
